@@ -1,5 +1,4 @@
 // 1) IMPORTS
-
 const express = require('express');
 require('express-async-errors');
 const app = express();
@@ -15,14 +14,12 @@ const { ValidationError } = require('sequelize');
 
 
 // 2) SETTINGS AND CONFIGURATION
-
 app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(express.json());
 
 
 // 3) MIDDLEWARE
-
 // Security Middleware
 if (!isProduction) {
   // enable cors only in development
@@ -49,9 +46,7 @@ app.use(
 
   app.use(routes);
 
-
 // 4) ERROR HANDLING MIDDLEWARE
-
   // Catch unhandled requests and forward to error handler.
   app.use((_req, _res, next) => {
     const err = new Error("The requested resource couldn't be found.");
@@ -87,5 +82,5 @@ app.use((err, _req, res, _next) => {
   });
 });
 
-
+// 5) EXPORTS
 module.exports = app;
