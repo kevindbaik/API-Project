@@ -13,33 +13,35 @@ const router = express.Router();
 const validateSpot = [
   check('address')
     .exists({ checkFalsy: true })
-    .withMessage('Please provide a valid address.'),
+    .withMessage('Street address is required'),
   check('city')
     .exists( {checkFalsy: true })
-    .withMessage('Please provide a valid city.'),
+    .withMessage('City is required'),
     check('state')
     .exists( {checkFalsy: true })
-    .withMessage('Please provide a valid state.'),
+    .withMessage('State is required'),
   check('country')
     .exists( {checkFalsy: true })
-    .withMessage('Please provide a valid country.'),
+    .withMessage('Country is required'),
   check('lat')
     .exists( {checkFalsy: true })
     .isNumeric()
-    .withMessage('Please provide a valid latitude.'),
+    .withMessage('Latitude is not valid'),
   check('lng')
     .exists( {checkFalsy: true })
     .isNumeric()
-    .withMessage('Please provide a valid latitude.'),
+    .withMessage('Longitude is not valid'),
   check('name')
     .exists( {checkFalsy: true })
-    .withMessage('Please provide a valid name.'),
+    .isLength({max: 50})
+    .withMessage('Name must be less than 50 characters'),
   check('description')
     .exists( {checkFalsy: true })
-    .withMessage('Please provide a valid description.'),
+    .withMessage('Description is required'),
   check('price')
     .exists( {checkFalsy: true })
-    .withMessage('Please provide a valid price.'),
+    .isNumeric()
+    .withMessage('Price per day is required'),
     handleValidationErrors
 ];
 
@@ -192,10 +194,10 @@ validateSpot,
       description,
       price
     });
-    res.status(200);
+    res.status(201);
     return res.json(createSpot)
   } else {
-    res.status(400);
+    res.status(404);
     return res.json({ user: null })
   }
 })
