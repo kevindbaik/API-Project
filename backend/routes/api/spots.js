@@ -71,11 +71,11 @@ async(req, res) => {
 
   // get average stars
   allSpots.forEach(spot => {
-    spot.avgReview = 0;
+    spot.avgStars = 0;
     spot.Reviews.forEach(review => {
-        spot.avgReview += review.stars;
+        spot.avgStars += review.stars;
     })
-      spot.avgReview = spot.avgReview / spot.Reviews.length
+      spot.avgStars = spot.avgStars / spot.Reviews.length
       delete spot.Reviews;
   })
 
