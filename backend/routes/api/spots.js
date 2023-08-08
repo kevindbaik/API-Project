@@ -56,6 +56,16 @@ async(req, res) => {
     allSpots.push(spot.toJSON())
   });
 
+  // get average stars
+  allSpots.forEach(spot => {
+    spot.avgStars = 0;
+    spot.Reviews.forEach(review => {
+        spot.avgStars += review.stars;
+    })
+      spot.avgStars = spot.avgStars / spot.Reviews.length
+      delete spot.Reviews;
+  });
+
   // get preview Image
   allSpots.forEach(spot => {
     spot.SpotImages.forEach(image => {
@@ -69,6 +79,30 @@ async(req, res) => {
     delete spot.SpotImages;
   })
 
+  res.status(200);
+  return res.json({Spots: allSpots})
+});
+
+
+// get all spots owned by current user
+router.get('/current',
+requireAuth,
+async(req, res) => {
+  const { user } = req;
+
+  const spots = await Spot.findAll({
+    where: {
+      ownerId: user.id
+    },
+    include: [SpotImage, Review]
+  });
+
+
+  let allSpots = [];
+  spots.forEach(spot => {
+    allSpots.push(spot.toJSON())
+  });
+
   // get average stars
   allSpots.forEach(spot => {
     spot.avgStars = 0;
@@ -77,14 +111,34 @@ async(req, res) => {
     })
       spot.avgStars = spot.avgStars / spot.Reviews.length
       delete spot.Reviews;
+  });
+
+  // get preview Image
+  allSpots.forEach(spot => {
+    spot.SpotImages.forEach(image => {
+      if(image.preview) {
+        spot.previewImage = image.url
+      }
+    })
+    if(!spot.previewImage) {
+      spot.preview = 'No preview image.'
+    }
+    delete spot.SpotImages;
   })
 
-  res.status(200);
-  return res.json(allSpots)
-});
+
+  if(spots.length) {
+    res.status(200)
+    return res.json({Spots: allSpots})
+  } else {
+    res.status(404)
+    return res.json({message: 'User does not own any spots.'})
+  };
+})
+
 
 // create a spot
-router.post('/new',
+router.post('/',
 requireAuth,
 validateSpot,
   async(req, res) => {

@@ -19,7 +19,7 @@ const validSpots = [
     lat: 33.997,
     lng: -117.73,
     name: 'CHINO HILLS APARTMENT',
-    description: '2 bed/1 bath apartment. No animals allowed. No parties allowed.',
+    description: '2 bed and 1 bath apartment. No animals allowed. No parties allowed.',
     price: 300.00
   },
   {
@@ -31,7 +31,7 @@ const validSpots = [
     lat: 64.963,
     lng: -19.02,
     name: 'NY MANSION',
-    description: '6 bed/4 bath mansion located in the heart of downtown Reykjavik. Near many bars and clubs.',
+    description: '6 bed and 4 bath mansion located in the heart of downtown Reykjavik. Near many bars and clubs.',
     price: 5000.00
   },
   {
@@ -43,7 +43,7 @@ const validSpots = [
     lat: 47.66,
     lng: -122.33,
     name: 'SEATTLE SMALL CONDO',
-    description: '1 bed/1 bath condo right outside the famous Pike Market.',
+    description: '1 bed and 1 bath condo right outside the famous Pike Market.',
     price: 125.00
   }
 ];

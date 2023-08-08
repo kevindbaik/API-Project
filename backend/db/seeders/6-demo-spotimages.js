@@ -12,7 +12,7 @@ if (process.env.NODE_ENV === 'production') {
 const validSpotImages = [
   {
     spotId: 1,
-    url: "https://icelandmansion.com",
+    url: "https://lastudioapartment.com",
     preview: true
   },
   {
