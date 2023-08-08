@@ -24,13 +24,13 @@ const validSpots = [
   },
   {
     ownerId: 4,
-    address: '101 Laughsburg',
-    city: 'Reykjavik',
-    state: null,
-    country: 'Iceland',
+    address: '301 Laughsburg',
+    city: 'Brooklyn',
+    state: 'New York',
+    country: 'United States',
     lat: 64.963,
     lng: -19.02,
-    name: 'ICELAND MANSION',
+    name: 'NY MANSION',
     description: '6 bed/4 bath mansion located in the heart of downtown Reykjavik. Near many bars and clubs.',
     price: 5000.00
   },
