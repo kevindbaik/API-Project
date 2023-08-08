@@ -104,11 +104,11 @@ async(req, res) => {
 
   // get average stars
   allSpots.forEach(spot => {
-    spot.avgStars = 0;
+    spot.avgRating = 0;
     spot.Reviews.forEach(review => {
-        spot.avgStars += review.stars;
+        spot.avgRating += review.stars;
     })
-      spot.avgStars = spot.avgStars / spot.Reviews.length
+      spot.avgRating = spot.avgRating / spot.Reviews.length
       delete spot.Reviews;
   });
 
@@ -120,7 +120,7 @@ async(req, res) => {
       }
     })
     if(!spot.previewImage) {
-      spot.preview = 'No preview image.'
+      spot.previewImage = 'No preview image.'
     }
     delete spot.SpotImages;
   })
