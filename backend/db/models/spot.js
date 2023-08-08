@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
 
       Spot.hasMany(models.SpotImage, {
         foreignKey: 'spotId',
-        onDelete: 'CASCADE'
+        onDelete: 'CASCADE',
       });
 
       Spot.hasMany(models.Review, {
@@ -67,14 +67,18 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DECIMAL,
       allowNull: false,
       validate: {
-        isDecimal: true
+        isDecimal: true,
+        min: -90,
+        max: 90
       }
     },
     lng: {
       type: DataTypes.DECIMAL,
       allowNull: false,
       validate: {
-        isDecimal: true
+        isDecimal: true,
+        min: -180,
+        max: 180
       }
     },
     name: {

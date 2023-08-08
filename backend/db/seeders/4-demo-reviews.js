@@ -26,8 +26,21 @@ const validReviews = [
     userId: 1,
     review: 'Very, very small. Nothing works and it smells horrible. Noises outside were very bothersome and I got zero work done. I will contact support for a refund.',
     stars: 0
+  },
+  {
+    spotId: 1,
+    userId: 3,
+    review: 'Boring. Would not recommend if you are trying to have a good time.',
+    stars: 2,
+  },
+  {
+    spotId: 2,
+    userId: 2,
+    review: 'A nice place with a great view! Thanks for the hospitality.',
+    stars: 4
   }
-]
+];
+
 module.exports = {
   async up (queryInterface, Sequelize) {
     try {
