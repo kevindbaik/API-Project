@@ -12,18 +12,28 @@ if (process.env.NODE_ENV === 'production') {
 const validSpotImages = [
   {
     spotId: 1,
-    url: "https://lastudioapartment.com",
+    url: "https://randomimageURL.com/house/1/1",
+    preview: true
+  },
+  {
+    spotId: 1,
+    url: "https://randomimageURL.com/house/1/2",
+    preview: false
+  },
+  {
+    spotId: 2,
+    url: "https://randomimageURL.com/house/2/1",
     preview: true
   },
   {
     spotId: 2,
-    url: "https://chinohillsapartment.com",
-    preview: true
+    url: "https://randomimageURL.com/house/2/2",
+    preview: false
   },
   {
     spotId: 3,
-    url: "https://seattlepikecondos.com",
-    preview: false
+    url: "https://randomimageURL.com/house/3/1",
+    preview: true
   }
 ]
 

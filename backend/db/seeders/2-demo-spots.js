@@ -12,37 +12,37 @@ if (process.env.NODE_ENV === 'production') {
 const validSpots = [
   {
     ownerId: 4,
-    address: '99999 Fairfield Ranch',
+    address: '1234 Fairfield Ranch',
     city: 'Chino Hills',
     state: 'California',
     country: 'United States',
     lat: 33.997,
     lng: -117.73,
-    name: 'CHINO HILLS APARTMENT',
+    name: 'Chino Hills Apartment',
     description: '2 bed and 1 bath apartment. No animals allowed. No parties allowed.',
     price: 300.00
   },
   {
     ownerId: 4,
-    address: '301 Laughsburg',
+    address: '301 Gloom Street',
     city: 'Brooklyn',
     state: 'New York',
     country: 'United States',
     lat: 64.963,
     lng: -19.02,
-    name: 'NY MANSION',
+    name: 'NY Mansion',
     description: '6 bed and 4 bath mansion located in the heart of downtown Reykjavik. Near many bars and clubs.',
     price: 5000.00
   },
   {
     ownerId: 4,
-    address: '1204 Pike Street',
+    address: '1204 Pike Place',
     city: 'Seattle',
     state: 'Washington',
     country: 'United States',
     lat: 47.66,
     lng: -122.33,
-    name: 'SEATTLE SMALL CONDO',
+    name: 'Seattle Condo',
     description: '1 bed and 1 bath condo right outside the famous Pike Market.',
     price: 125.00
   }

@@ -13,12 +13,20 @@ const validReviewImages = [
     url: "https://airbnb.com/blonded/uploads/9942"
   },
   {
+    reviewId: 1,
+    url: "https://airbnb.com/michelleobama/uploads/1973"
+  },
+  {
     reviewId: 2,
     url: "https://airbnb.com/michelleobama/uploads/1343"
   },
   {
     reviewId: 3,
     url: "https://airbnb.com/boygenius/uploads/4245"
+  },
+  {
+    reviewId: 3,
+    url: "https://airbnb.com/boygenius/uploads/4265"
   }
 ]
 
