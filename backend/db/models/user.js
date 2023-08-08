@@ -7,17 +7,21 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       User.hasMany(models.Spot, {
         foreignKey: 'ownerId',
-        onDelete: 'CASCADE'
+        onDelete: 'CASCADE',
+        hooks:true,
+        as: 'Owner'
       });
 
       User.hasMany(models.Review, {
         foreignKey: 'userId',
-        onDelete: 'CASCADE'
+        onDelete: 'CASCADE',
+        hooks: true
       });
 
       User.hasMany(models.Booking, {
         foreignKey: 'userId',
-        onDelete: 'CASCADE'
+        onDelete: 'CASCADE',
+        hooks: true
       })
     }
   };

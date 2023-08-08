@@ -83,7 +83,6 @@ async(req, res) => {
   return res.json({Spots: allSpots})
 });
 
-
 // get all spots owned by current user
 router.get('/current',
 requireAuth,
@@ -136,6 +135,41 @@ async(req, res) => {
   };
 })
 
+//get details of a spot from an id
+router.get('/:spotId', async(req, res) => {
+  let spot = await Spot.findByPk(req.params.spotId)
+  if(!spot) {
+    res.status(404);
+    res.json({message: 'Spot couldn\'t be found.'})
+  }
+  spot = spot.toJSON();
+
+  let reviews = await Review.findAll({ where: {spotId: req.params.spotId }});
+
+  let reviewJSON = [];
+  reviews.forEach(review => {
+    reviewJSON.push(review.toJSON())
+  });
+
+  let numReviews = reviews.length;
+  let sum = 0;
+  reviewJSON.forEach(review => {
+    sum += review.stars
+  });
+  let avgStars = sum / numReviews;
+  spot.numReviews = numReviews;
+  spot.avgStarRating = avgStars;
+
+  let images = await SpotImage.findAll({ where: { spotId: req.params.spotId }, attributes: ['id', 'url', 'preview']});
+  spot.SpotImages = images;
+
+  let owner = await User.findByPk(spot.ownerId, {
+    attributes: ['id', 'firstName', 'lastName']
+  });
+  spot.Owner = owner;
+
+  res.json(spot)
+})
 
 // create a spot
 router.post('/',
@@ -207,7 +241,7 @@ validateSpot,
       return res.json({message: 'User not authorized to make edit.'})
     }
   }
-})
+});
 
 // delete a spot
 router.delete('/:spotId',
