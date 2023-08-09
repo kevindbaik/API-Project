@@ -25,7 +25,7 @@ const validReviews = [
     spotId: 3,
     userId: 1,
     review: 'Very, very small. Nothing works and it smells horrible. Noises outside were very bothersome and I got zero work done. I will contact support for a refund.',
-    stars: 0
+    stars: 1
   },
   {
     spotId: 1,

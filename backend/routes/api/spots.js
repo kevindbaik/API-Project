@@ -7,6 +7,8 @@ const { Spot } = require('../../db/models');
 const { SpotImage } = require('../../db/models');
 const { Review } = require('../../db/models');
 const { User } = require('../../db/models');
+const { ReviewImage } = require('../../db/models');
+
 
 const router = express.Router();
 
@@ -44,6 +46,18 @@ const validateSpot = [
     .withMessage('Price per day is required'),
     handleValidationErrors
 ];
+
+const validateReview = [
+  check('review')
+  .exists({ checkFalsy: true })
+  .withMessage('Review text is required'),
+  check('stars')
+  .exists({ checkFalsy: true })
+  .isNumeric()
+  .isFloat({ min: 1, max: 5 })
+  .withMessage('Stars must be an integer from 1 to 5'),
+  handleValidationErrors
+]
 
 
 // get all spots
@@ -133,6 +147,76 @@ async(req, res) => {
     res.status(404)
     return res.json({message: 'User does not own any spots.'})
   };
+});
+
+// get all reviews based on a spot id
+router.get('/:spotId/reviews', async(req, res) => {
+  const reviews = await Review.findAll({
+    where: {spotId: req.params.spotId},
+    include: [
+      {
+      model: User,
+      attributes: ['id', 'firstName', 'lastName']
+      },
+      {
+        model: ReviewImage,
+        attributes: ['id', 'url']
+      }
+  ]
+  });
+
+  const spot = await Spot.findByPk(req.params.spotId);
+  if(!spot) {
+    res.status(404);
+    return res.json({"message": "Spot couldn't be found"})
+  }
+
+  res.status(200);
+  return res.json({Reviews: reviews})
+});
+
+// create a review for a spot based on spot id
+router.post('/:spotId/reviews',
+requireAuth,
+validateReview,
+async(req, res) => {
+  const { user } = req;
+  const { review, stars } = req.body;
+
+  let spot = await Spot.findByPk(req.params.spotId);
+
+  if(!spot) {
+    res.status(404);
+    return res.json({ "message": "Spot couldn't be found" })
+  }
+
+  const checkReview = await Review.findAll({ where: {spotId:req.params.spotId}});
+  let checkReviewJSON = [];
+  checkReview.forEach(review => {
+    checkReviewJSON.push(review.toJSON())
+  });
+
+  let reviewed = false;
+  checkReviewJSON.forEach(review => {
+    if(review.userId === user.id) {
+      reviewed = true
+    }
+  })
+
+  if(reviewed) {
+    res.status(500);
+    return res.json({"message": "User already has a review for this spot"})
+  }
+  else {
+      const newReview = await spot.createReview({
+      userId: user.id,
+      review,
+      stars
+    });
+
+    res.status(200);
+    return res.json(newReview)
+  }
 })
 
 //get details of a spot from an id
@@ -170,7 +254,7 @@ router.get('/:spotId', async(req, res) => {
   spot.Owner = owner;
 
   res.json(spot)
-})
+});
 
 // create a spot
 router.post('/',
@@ -199,7 +283,7 @@ validateSpot,
     res.status(404);
     return res.json({ user: null })
   }
-})
+});
 
 // add an image to a spot based on spot id
 router.post('/:spotId/images',
@@ -234,7 +318,7 @@ async(req, res) => {
 
     res.json(response)
   }
-})
+});
 
 // edit a spot
 router.put('/:spotId',
