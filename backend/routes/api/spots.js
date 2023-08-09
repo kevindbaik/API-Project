@@ -98,7 +98,6 @@ async(req, res) => {
     include: [SpotImage, Review]
   });
 
-
   let allSpots = [];
   spots.forEach(spot => {
     allSpots.push(spot.toJSON())
@@ -126,7 +125,6 @@ async(req, res) => {
     }
     delete spot.SpotImages;
   })
-
 
   if(spots.length) {
     res.status(200)
@@ -220,7 +218,6 @@ async(req, res) => {
     return res.json({ message: 'Spot does not belong to current user'})
   };
 
-
   if(user.id === spot.ownerId) {
     const image = await spot.createSpotImage({
       url : url,
@@ -237,7 +234,6 @@ async(req, res) => {
     res.json(response)
   }
 })
-
 
 // edit a spot
 router.put('/:spotId',
@@ -295,7 +291,7 @@ async(req, res) => {
 
   if(!spot) {
     res.status(404);
-    return res.json({message: 'Spot does not exist.'})
+    return res.json({message: 'Spot couldn\'t be found.'})
   };
 
   if(user) {
@@ -306,7 +302,7 @@ async(req, res) => {
       return res.json({ message: 'Successfully deleted.'})
     } else if (user.id !== spot.ownerId) {
       res.status(400);
-      return res.json({message: 'User is not authorized to delete.'})
+      return res.json({message: 'Only the owner can delete this spot.'})
     }
   }
 })
