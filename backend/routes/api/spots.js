@@ -57,7 +57,7 @@ const validateReview = [
   .isFloat({ min: 1, max: 5 })
   .withMessage('Stars must be an integer from 1 to 5'),
   handleValidationErrors
-]
+];
 
 // get all spots
 router.get('/',
@@ -383,7 +383,7 @@ async(req, res) => {
       await spot.destroy();
 
       res.status(200);
-      return res.json({ message: 'Successfully deleted.'})
+      return res.json({ message: 'Successfully deleted'})
     } else if (user.id !== spot.ownerId) {
       res.status(400);
       return res.json({message: 'Only the owner can delete this spot.'})

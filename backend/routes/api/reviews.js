@@ -11,6 +11,17 @@ const { ReviewImage } = require('../../db/models');
 
 const router = express.Router();
 
+const validateReview = [
+  check('review')
+  .exists({ checkFalsy: true })
+  .withMessage('Review text is required'),
+  check('stars')
+  .exists({ checkFalsy: true })
+  .isNumeric()
+  .isFloat({ min: 1, max: 5 })
+  .withMessage('Stars must be an integer from 1 to 5'),
+  handleValidationErrors
+];
 
 // get all reviews of the current user
 router.get('/current',
@@ -64,6 +75,7 @@ async(req, res) => {
   return res.json({Reviews: reviewJSON})
 })
 
+// add an image to review based on review id
 router.post('/:reviewId/images',
 requireAuth,
 async(req, res) => {
@@ -103,9 +115,61 @@ async(req, res) => {
   }
 })
 
+// edit an image based on review id
+router.put('/:reviewId',
+requireAuth,
+validateReview,
+async(req, res) => {
+  const { user } = req;
 
+  let editReview = await Review.findByPk(req.params.reviewId);
 
+  if(!editReview) {
+    res.status(404);
+    return res.json({message: "Review couldn't be found"})
+  };
 
+  if(editReview.userId !== user.id) {
+    res.status(403);
+    return res.json({message: 'Review does not belong to user'})
+  };
 
+  const { review, stars } = req.body;
+
+  if(editReview.userId === user.id) {
+    editReview.review = review;
+    editReview.stars = stars;
+
+    await editReview.save();
+
+    res.status(200);
+    res.json(editReview)
+  }
+})
+
+// delete a review based on reviewId
+router.delete('/:reviewId',
+requireAuth,
+async(req, res) => {
+  const { user } = req;
+  const review = await Review.findByPk(req.params.reviewId);
+
+  if(!review) {
+    res.status(404);
+    return res.json({message: "Review couldn't be found"})
+  };
+
+  if(review.userId !== user.id) {
+    res.status(403);
+    return res.json({message: 'Review does not belong to user'})
+  };
+
+  if(review.userId === user.id) {
+    await review.destroy();
+
+    res.status(200);
+    return res.json({ message: 'Successfully deleted '})
+  }
+})
 
 module.exports = router;
