@@ -44,7 +44,6 @@ async(req, res) => {
     return res.json({message: 'No reviews found for current user.'})
   }
 
-
   let reviewJSON = [];
   reviews.forEach(review => {
     reviewJSON.push(review.toJSON())
@@ -61,9 +60,8 @@ async(req, res) => {
     delete review.Spot.SpotImages
   })
 
-
-  res.json({Reviews: reviewJSON})
-
+  res.status(200);
+  return res.json({Reviews: reviewJSON})
 })
 
 
