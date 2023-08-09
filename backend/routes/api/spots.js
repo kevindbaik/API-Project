@@ -35,7 +35,7 @@ const validateSpot = [
     .withMessage('Longitude is not valid'),
   check('name')
     .exists( {checkFalsy: true })
-    .isLength({max: 50})
+    .isLength({min:2, max: 50})
     .withMessage('Name must be less than 50 characters'),
   check('description')
     .exists( {checkFalsy: true })
@@ -213,7 +213,7 @@ async(req, res) => {
       stars
     });
 
-    res.status(200);
+    res.status(201);
     return res.json(newReview)
   }
 })
@@ -299,7 +299,7 @@ async(req, res) => {
 
   if(user.id !== spot.ownerId) {
     res.status(403);
-    return res.json({ message: 'Spot does not belong to current user'})
+    return res.json({ message: 'Forbidden: Spot does not belong to current user'})
   };
 
   if(user.id === spot.ownerId) {
@@ -334,7 +334,7 @@ async(req, res) => {
 
   if(!spot) {
     res.status(404);
-    return res.json({message: 'Spot does not exist.'})
+    return res.json({message: 'Spot couldn\'t be found'})
   };
 
   const { address, city, state, country, lat, lng, name, description, price } = req.body;
@@ -356,8 +356,8 @@ async(req, res) => {
       res.status(200);
       res.json(spot)
     } else if (user.id !== spot.ownerId) {
-      res.status(400);
-      return res.json({message: 'User not authorized to make edit.'})
+      res.status(403);
+      return res.json({message: 'Forbidden: User not authorized to make edit.'})
     }
   }
 });
@@ -385,8 +385,8 @@ async(req, res) => {
       res.status(200);
       return res.json({ message: 'Successfully deleted'})
     } else if (user.id !== spot.ownerId) {
-      res.status(400);
-      return res.json({message: 'Only the owner can delete this spot.'})
+      res.status(403);
+      return res.json({message: 'Forbidden: Only the owner can delete this spot.'})
     }
   }
 })

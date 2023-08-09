@@ -93,7 +93,7 @@ async(req, res) => {
 
   if(user.id !== review.userId) {
     res.status(403);
-    return res.json({message: 'Review does not belong to user'})
+    return res.json({message: 'Forbidden: Review does not belong to user'})
   }
 
   if(review.ReviewImages.length < 10) {
@@ -131,7 +131,7 @@ async(req, res) => {
 
   if(editReview.userId !== user.id) {
     res.status(403);
-    return res.json({message: 'Review does not belong to user'})
+    return res.json({message: 'Forbidden: Review does not belong to user'})
   };
 
   const { review, stars } = req.body;
@@ -161,7 +161,7 @@ async(req, res) => {
 
   if(review.userId !== user.id) {
     res.status(403);
-    return res.json({message: 'Review does not belong to user'})
+    return res.json({message: 'Forbidden: Review does not belong to user'})
   };
 
   if(review.userId === user.id) {
