@@ -59,7 +59,6 @@ const validateReview = [
   handleValidationErrors
 ]
 
-
 // get all spots
 router.get('/',
 async(req, res) => {

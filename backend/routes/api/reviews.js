@@ -64,6 +64,44 @@ async(req, res) => {
   return res.json({Reviews: reviewJSON})
 })
 
+router.post('/:reviewId/images',
+requireAuth,
+async(req, res) => {
+  const { user } = req;
+  const { url } = req.body;
+
+  let review = await Review.findByPk(req.params.reviewId, {
+    include: ReviewImage
+  });
+
+  if(!review) {
+    res.status(404);
+    return res.json({message: "Review couldn't be found"})
+  }
+
+  if(user.id !== review.userId) {
+    res.status(403);
+    return res.json({message: 'Review does not belong to user'})
+  }
+
+  if(review.ReviewImages.length < 10) {
+  let reviewImage = await review.createReviewImage({
+    reviewId: req.params.reviewId,
+    url
+  });
+
+  await reviewImage.save();
+  let response = {};
+  response.id = reviewImage.id;
+  response.url = reviewImage.url;
+
+  res.status(200);
+  return res.json(response)
+} else if (review.ReviewImages.length >= 10) {
+  res.status(403);
+  return res.json({"message": "Maximum number of images for this resource was reached"})
+  }
+})
 
 
 
