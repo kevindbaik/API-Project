@@ -345,7 +345,6 @@ validateSpot,
   }
 });
 
-
 // create a booking for a spot based on spot id
 router.post('/:spotId/bookings',
 requireAuth,
@@ -370,7 +369,7 @@ async(req, res) => {
   let numStart = userStart.getTime();
   let numEnd = userEnd.getTime();
 
-  if(numStart > numEnd) {
+  if(numStart >= numEnd) {
     res.status(400);
     return res.json({
       message: "Bad Request",
@@ -381,7 +380,7 @@ async(req, res) => {
   };
 
   const bookings = await Booking.findAll({ where: {spotId: req.params.spotId }});
-  console.log(bookings)
+ let conflict = false;
 
   let checkStart = [];
   let checkEnd = [];
@@ -396,14 +395,14 @@ async(req, res) => {
     let bookedEnd = new Date(formatEnd);
 
     bookedStart = bookedStart.getTime();
-    checkStart.push(bookedStart);
+
     bookedEnd = bookedEnd.getTime();
-    checkEnd.push(bookedEnd);
+
+    if(bookedStart <= numStart && numStart <= bookedEnd) conflict = true;
+    if(numStart <= bookedStart && bookedStart <= numEnd && numEnd <= bookedStart) conflict = true;
+    if(numStart <= bookedStart && numEnd >= bookedStart) conflict = true;
   });
 
-  let conflict = false;
-  if(checkStart.includes(numStart)) conflict = true;
-  if(checkEnd.includes(numEnd)) conflict = true;
 
   if(conflict) {
     res.status(403);
@@ -423,11 +422,9 @@ async(req, res) => {
     endDate
   });
 
-  res.status(200);
-  return res.json(createBooking)
-
-})
-
+  // res.status(200);
+  // return res.json(createBooking)
+});
 
 // create an image to a spot based on spot id
 router.post('/:spotId/images',
