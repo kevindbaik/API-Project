@@ -395,7 +395,6 @@ async(req, res) => {
     let bookedEnd = new Date(formatEnd);
 
     bookedStart = bookedStart.getTime();
-
     bookedEnd = bookedEnd.getTime();
 
     if(bookedStart <= numStart && numStart <= bookedEnd) conflict = true;
@@ -422,8 +421,8 @@ async(req, res) => {
     endDate
   });
 
-  // res.status(200);
-  // return res.json(createBooking)
+  res.status(200);
+  return res.json(createBooking)
 });
 
 // create an image to a spot based on spot id

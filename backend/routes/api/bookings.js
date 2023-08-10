@@ -91,12 +91,23 @@ async(req, res) => {
 
   // VALIDATION FOR PAST BOOKINGS
   let currentDate = new Date();
-  currentDate = currentDate.getTime();
+  currentDate = JSON.stringify(currentDate);
+  currentDate = currentDate.slice(1,11)
+
+  let currentDateFormat = new Date(currentDate)
+  currentDateFormat = currentDateFormat.getTime();
 
   let pastCheck = new Date(booking.endDate);
   pastCheck = pastCheck.getTime();
 
-  if(currentDate > pastCheck) {
+  if(currentDateFormat > numEnd || currentDateFormat > numStart) {
+    res.status(404);
+    return res.json({
+      message: "Booking date cannot be a date in the past."
+    })
+  }
+
+  if(currentDateFormat > pastCheck) {
     res.status(403);
     return res.json({
       message: "Past bookings can't be modified"
@@ -124,7 +135,10 @@ async(req, res) => {
 
     bookedStart = bookedStart.getTime();
     bookedEnd = bookedEnd.getTime();
-    if(bookedStart === numStart || bookedEnd === numEnd) console.log('x')
+
+    if(bookedStart <= numStart && numStart <= bookedEnd) conflict = true;
+    if(numStart <= bookedStart && bookedStart <= numEnd && numEnd <= bookedStart) conflict = true;
+    if(numStart <= bookedStart && numEnd >= bookedStart) conflict = true;
   });
 
   if(conflict) {
@@ -136,9 +150,63 @@ async(req, res) => {
         endDate: "End date conflicts with an existing booking"
       }
     })
+  };
+
+  booking.startDate = startDate;
+  booking.endDate = endDate;
+
+  await booking.save();
+  res.status(200);
+  res.json(booking)
+});
+
+router.delete('/:bookingId',
+requireAuth,
+async(req,res) => {
+  const { user } = req;
+  const booking = await Booking.findByPk(req.params.bookingId);
+
+  // VALIDATE BOOKING EXISTS
+  if(!booking) {
+    res.status(404);
+    return res.json({ message: "Booking couldn't be found" })
+  };
+
+  const spot = await booking.getSpot();
+  // VALIDATE BOOKING CAN ONLY BE DELETED BY BOOKED USER OR SPOT OWNER
+  if(booking.userId !== user.id && spot.ownerId !== user.id) {
+    res.status(403);
+    return res.json({ message: "Forbidden: user does not have access to this booking."})
+  };
+
+  // VALIDATE BOOKING HASNT STARTED YET
+  let formatStart = JSON.stringify(booking.startDate);
+  formatStart = formatStart.slice(1,11);
+  let bookedStart = new Date(formatStart);
+
+  let formatEnd = JSON.stringify(booking.endDate);
+  formatEnd = formatEnd.slice(1,11);
+  let bookedEnd = new Date(formatEnd);
+
+  bookedStart = bookedStart.getTime();
+  bookedEnd = bookedEnd.getTime();
+
+  let currentDate = new Date();
+  currentDate = JSON.stringify(currentDate);
+  currentDate = currentDate.slice(1,11)
+
+  let currentDateFormat = new Date(currentDate)
+  currentDateFormat = currentDateFormat.getTime();
+
+  if(currentDateFormat < bookedStart){
+    await booking.destroy();
+
+    res.status(200);
+    return res.json({ message: "Successfully deleted" })
+  } else {
+    res.status(403);
+    return res.json({ message: "Bookings that have been started can't be deleted" })
   }
-
-
 })
 
 module.exports = router;
