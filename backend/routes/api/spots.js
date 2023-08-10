@@ -60,12 +60,55 @@ const validateReview = [
   handleValidationErrors
 ];
 
+const validateQuery = [
+  check('page')
+  .isFloat({ min: 1 })
+  .withMessage('Page must be greater than or equal to 1'),
+  check('size')
+  .isFloat({ min: 1 })
+  .withMessage('Page must be greater than or equal to 1'),
+  handleValidationErrors
+]
+
 // get all spots
 router.get('/',
 async(req, res) => {
+  // PAGINATION
+  let { page, size } = req.query;
+
+  if(page <= 0) {
+    res.status(400);
+    return res.json({
+      "message": "Bad Request",
+      "errors": {
+        "page": "Page must be greater than or equal to 1",
+      }
+    })
+  };
+
+  if(size <= 0) {
+    res.status(400);
+    return res.json({
+      "message": "Bad Request",
+      "errors": {
+        "size": "Size must be greater than or equal to 1",
+      }
+    })
+  }
+
+  if(!page || isNaN(parseInt(page)) || parseInt(page) > 10) page = 1;
+  if(!size || isNaN(parseInt(size)) || parseInt(size) > 20) size = 20;
+
+  let pagination = {};
+  pagination.limit = size;
+  pagination.offset = size * (page - 1);
+
+
   const spots = await Spot.findAll({
-    include: [{ model: SpotImage }, { model: Review }]
+    include: [{ model: SpotImage }, { model: Review }],
+    ...pagination
   });
+
 
   let allSpots = [];
   spots.forEach(spot => {
@@ -96,7 +139,7 @@ async(req, res) => {
   })
 
   res.status(200);
-  return res.json({Spots: allSpots})
+  return res.json({Spots: allSpots, page: parseInt(page), size: parseInt(size)})
 });
 
 // get all spots owned by current user
