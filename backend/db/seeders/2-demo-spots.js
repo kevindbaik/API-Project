@@ -31,7 +31,7 @@ const validSpots = [
     lat: 64.963,
     lng: -19.02,
     name: 'NY Mansion',
-    description: '6 bed and 4 bath mansion located in the heart of downtown Reykjavik. Near many bars and clubs.',
+    description: '6 bed and 4 bath mansion located in the heart of Brooklyn. Near many bars and clubs.',
     price: 5000.00
   },
   {
