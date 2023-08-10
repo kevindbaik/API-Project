@@ -12,7 +12,7 @@ const { Booking } = require('../../db/models');
 
 const router = express.Router();
 
-
+// get all current users bookings
 router.get('/current',
 requireAuth,
 async(req, res) => {
@@ -45,6 +45,6 @@ async(req, res) => {
   })
 
   res.json({Bookings: bookingsJSON})
-})
+});
 
 module.exports = router;
