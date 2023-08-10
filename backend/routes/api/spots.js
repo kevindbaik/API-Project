@@ -94,7 +94,7 @@ async(req, res) => {
         "size": "Size must be greater than or equal to 1",
       }
     })
-  }
+  };
 
   if(!page || isNaN(parseInt(page)) || parseInt(page) > 10) page = 1;
   if(!size || isNaN(parseInt(size)) || parseInt(size) > 20) size = 20;
