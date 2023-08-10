@@ -345,7 +345,91 @@ validateSpot,
   }
 });
 
-// add an image to a spot based on spot id
+
+// create a booking for a spot based on spot id
+router.post('/:spotId/bookings',
+requireAuth,
+async(req, res) => {
+  const { user } = req;
+  const { startDate, endDate } = req.body;
+  const spot = await Spot.findByPk(req.params.spotId);
+
+  if(!spot) {
+    res.status(404);
+    return res.json({message: "Spot couldn't be found"})
+  };
+
+  if(spot.ownerId === user.id) {
+    res.status(403);
+    return res.json({message: "Forbidden: spot belongs to current user."})
+  };
+
+  const userStart = new Date(startDate);
+  const userEnd = new Date(endDate);
+
+  let numStart = userStart.getTime();
+  let numEnd = userEnd.getTime();
+
+  if(numStart > numEnd) {
+    res.status(400);
+    return res.json({
+      message: "Bad Request",
+      errors: {
+        endDate: "endDate cannot be on or before startDate"
+      }
+    })
+  };
+
+  const bookings = await Booking.findAll({ where: {spotId: req.params.spotId }});
+  console.log(bookings)
+
+  let checkStart = [];
+  let checkEnd = [];
+
+  bookings.forEach(booking => {
+    let formatStart = JSON.stringify(booking.startDate);
+    formatStart = formatStart.slice(1,11);
+    let bookedStart = new Date(formatStart);
+
+    let formatEnd = JSON.stringify(booking.endDate);
+    formatEnd = formatEnd.slice(1,11);
+    let bookedEnd = new Date(formatEnd);
+
+    bookedStart = bookedStart.getTime();
+    checkStart.push(bookedStart);
+    bookedEnd = bookedEnd.getTime();
+    checkEnd.push(bookedEnd);
+  });
+
+  let conflict = false;
+  if(checkStart.includes(numStart)) conflict = true;
+  if(checkEnd.includes(numEnd)) conflict = true;
+
+  if(conflict) {
+    res.status(403);
+    return res.json({
+      message: "Sorry, this spot is already booked for the specified dates",
+      errors: {
+        startDate: "Start date conflicts with an existing booking",
+        endDate: "End date conflicts with an existing booking"
+      }
+    })
+  }
+
+  let createBooking = await spot.createBooking({
+    spotId: parseInt(req.params.spotId),
+    userId: parseInt(user.id),
+    startDate,
+    endDate
+  });
+
+  res.status(200);
+  return res.json(createBooking)
+
+})
+
+
+// create an image to a spot based on spot id
 router.post('/:spotId/images',
 requireAuth,
 async(req, res) => {
