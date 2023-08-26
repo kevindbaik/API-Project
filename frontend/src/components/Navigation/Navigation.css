@@ -7,25 +7,24 @@
   justify-content: space-between;
   align-items: center;
 
-  padding: 16px 30px 30px 35px;
+  padding: 10px 25px 18px 25px;
   border-bottom:1px solid rgb(217, 217, 217);
   background-color: rgb(254, 254, 254);
-  z-index: -1;
-}
-
-.user-profile-button-container {
-  position: relative;
 }
 
 .profile-dropdown {
   position: absolute;
-  width: 150px;
-  max-width: 150px;
-  left: -140px;
+  width: 160px;
+  max-width: 160px;
+  top: 60px;
+  right: 36px;
   padding: 10px;
 
   line-height: 30px;
-  border: 1px solid blue;
+  border: 1px solid rgb(217, 217, 217);
+  border-radius: 10px;
+  box-shadow: 1px 3px 7px -2px rgb(202, 202, 202);
+  background-color: white;
 }
 
 .user-profile-button {
