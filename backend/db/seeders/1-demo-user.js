@@ -38,6 +38,13 @@ module.exports = {
         hashedPassword: bcrypt.hashSync('landlord'),
         firstName: 'Land',
         lastName: 'Lord'
+      },
+      {
+        email: 'demouser@appacademy.com',
+        username: 'demouser',
+        hashedPassword: bcrypt.hashSync('demouser'),
+        firstName: 'demo',
+        lastName: 'user'
       }
     ], { validate: true });
   },
