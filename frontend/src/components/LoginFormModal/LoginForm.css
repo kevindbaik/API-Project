@@ -4,19 +4,16 @@
   align-items: center;
   width: 400px;
   height: 300px;
-  border: 1px solid red;
 }
 
 label {
   display: block;
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
 }
 
 input {
   display: flex;
-  align-items: start;
-  justify-content: flex-start;
   margin-top: 10px;
 }
 

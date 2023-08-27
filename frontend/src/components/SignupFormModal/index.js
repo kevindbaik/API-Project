@@ -46,7 +46,7 @@ function SignupFormModal() {
       <h1>Sign Up</h1>
       <form onSubmit={handleSubmit}>
         <label>
-          <span> Email</span>
+           Email
           <input
             type="text"
             value={email}
