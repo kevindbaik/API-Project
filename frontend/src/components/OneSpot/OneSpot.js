@@ -1,19 +1,23 @@
-import React from 'react'
-import './OneSpot.css'
+import React from 'react';
+import './OneSpot.css';
+import 'react-tooltip/dist/react-tooltip.css'
+import Tooltip from '../Tooltip/Tooltip';
 
 function OneSpot({spot}) {
   return (
     <div className='onespot-container'>
       <div className='onespot-image-container'>
-        <img className='onespot-image' src={spot.previewImage} alt=''/>
+        <Tooltip content={spot.name} direction='top'>
+        <img content={spot.name} className='onespot-image' src={spot.previewImage} alt=''/>
+        </Tooltip>
       </div>
       <div className='onespot-info'>
         <div>
         <h4 className='onespot-location'>{spot.city}, {spot.state}</h4>
-        <p>${spot.price} night</p>
+        <p className='onespot-price'>${spot.price} night</p>
         </div>
         <div>
-          <p className='onespot-star'>STAR: {spot.avgRating}.0</p>
+          {spot.avgRating >=1 ? <i class="fa-solid fa-star">&nbsp; {spot.avgRating}.0</i> : <p className='onespot-new'>New</p>}
         </div>
       </div>
     </div>

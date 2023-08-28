@@ -46,9 +46,15 @@
 }
 
 #profile-dropdown-loggedin {
+  z-index: 10;
   width: 230px;
   max-width: 230px;
 }
+
+#profile-dropdown-loggedout {
+  z-index: 10;
+}
+
 
 .seedbnb-logo {
   width: 167px;
