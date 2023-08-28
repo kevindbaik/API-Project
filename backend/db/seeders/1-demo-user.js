@@ -30,7 +30,7 @@ module.exports = {
         username: 'iansanluis',
         hashedPassword: bcrypt.hashSync('guitar'),
         firstName: 'Ian',
-        lastName: 'San Luis'
+        lastName: 'SanLuis'
       },
       {
         email: 'iowneverything@airbnb.com',
@@ -43,8 +43,8 @@ module.exports = {
         email: 'demouser@appacademy.com',
         username: 'demouser',
         hashedPassword: bcrypt.hashSync('demouser'),
-        firstName: 'demo',
-        lastName: 'user'
+        firstName: 'Demo',
+        lastName: 'User'
       }
     ], { validate: true });
   },

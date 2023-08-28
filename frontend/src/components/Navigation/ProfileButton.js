@@ -37,7 +37,8 @@ function ProfileButton({ user }) {
     closeMenu();
   };
 
-  const divClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
+  const divShow = "profile-dropdown" + (showMenu ? "" : " hidden");
+  const divUser = "profile-dropdown" + (user ? "-loggedin" : "-loggedout");
 
   return (
     <div className="user-profile-button-container">
@@ -45,16 +46,15 @@ function ProfileButton({ user }) {
         <i className="fa-solid fa-bars" />
         <i className="fas fa-user-circle" />
       </button>
-      <div className={divClassName} ref={ulRef}>
+      <div id={divUser} className={divShow} ref={ulRef}>
         {user ? (
-          <>
-            <p>{user.username}</p>
-            <p>{user.firstName} {user.lastName}</p>
+          <div className='logged-in-dropdown'>
+            <p>Hello, {user.firstName}.</p>
             <p>{user.email}</p>
             <p>
               <button onClick={logout}>Log Out</button>
             </p>
-          </>
+          </div>
         ) : (
           <div>
             <OpenModalMenuItem

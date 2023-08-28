@@ -27,11 +27,13 @@ const validateSignup = [
   check('firstName')
     .exists({ checkFalsy: true })
     .isLength({ min: 2 })
-    .withMessage('Must enter a valid first name.'),
+    .isAlpha()
+    .withMessage('First name can only contain letters.'),
   check('lastName')
     .exists({ checkFalsy: true})
     .isLength({ min: 2 })
-    .withMessage('Must enter a valid last name.'),
+    .isAlpha()
+    .withMessage('Last name can only contain letters.'),
   handleValidationErrors
 ];
 

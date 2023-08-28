@@ -14,8 +14,8 @@
 
 .profile-dropdown {
   position: absolute;
-  width: 160px;
-  max-width: 160px;
+  width: 150px;
+  max-width: 150px;
   top: 60px;
   right: 36px;
   padding: 10px;
@@ -43,4 +43,9 @@
   font-size: 14px;
   margin-right: 10px;
   color: rgb(105, 105, 105)
+}
+
+#profile-dropdown-loggedin {
+  width: 230px;
+  max-width: 230px;
 }
