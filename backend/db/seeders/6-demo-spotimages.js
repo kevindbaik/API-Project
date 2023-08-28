@@ -90,6 +90,16 @@ const validSpotImages = [
     url: "https://a0.muscache.com/im/pictures/miso/Hosting-678349575561560896/original/1922faef-242a-4110-a4a1-d94969d99511.jpeg",
     preview: false
   },
+  {
+    spotId: 9,
+    url: "https://a0.muscache.com/im/pictures/f906fe29-49de-4375-a485-a8148c5e0de0.jpg",
+    preview: true
+  },
+  {
+    spotId: 10,
+    url: "https://a0.muscache.com/im/pictures/miso/Hosting-46220931/original/bdc05466-e6b8-4954-beb9-ecd12b436dc7.jpeg",
+    preview: true
+  },
 ]
 
 module.exports = {

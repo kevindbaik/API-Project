@@ -1,0 +1,35 @@
+.onespot-container {
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid blue; */
+}
+
+.onespot-image {
+  object-fit: cover;
+  width: 100%;
+  max-width: 293px;
+  height: 278px;
+
+  border-radius: 16px;
+}
+
+.onespot-info {
+  width: 288px;
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid red; */
+}
+
+.onespot-location {
+  padding-top: 0px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.onespot-star {
+  margin-top: 10px;
+}
+
+.onespot-image:hover {
+  cursor: pointer;
+}

@@ -105,6 +105,30 @@ const validSpots = [
     name: 'Stillaguamish River Treehouse',
     description: 'Treehouse can sleep up to 4 and has a kitchenette and toilet. Located right next to Stillaguamish River and includes free parking and picnic table for dining.',
     price: 155.00
+  },
+  {
+    ownerId: 5,
+    address: '21234 Demo Street',
+    city: 'Pehastin',
+    state: 'Washington',
+    country: 'United States',
+    lat: 19.12,
+    lng: -126.33,
+    name: 'Hansel Creek Treehouse',
+    description: 'Includes BBQ grill, cold drinking water cistern, refrigerator, coffee maker, silverware, and heat!',
+    price: 565.00
+  },
+  {
+    ownerId: 1,
+    address: '76456 Hush Forest',
+    city: 'Sooke',
+    state: 'British Columbia',
+    country: 'Canada',
+    lat: 23.12,
+    lng: -126.33,
+    name: 'West Sooke Treehouse',
+    description: 'Spend the day hiking around the trails nearby, then finish the night by a warm fire or hot tub. A treehouse sleepover fit for adults.',
+    price: 265.00
   }
 ];
 
