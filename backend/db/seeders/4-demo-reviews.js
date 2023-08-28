@@ -17,27 +17,45 @@ const validReviews = [
   },
   {
     spotId: 1,
-    userId: 2,
-    review: 'Not a bad stay. Upstair neighbors were loud, but other than that it was nice apartment.',
+    userId: 5,
+    review: 'Not a bad stay. Kitchen was a little too small, and fridge was not working properly.',
     stars: 3
   },
   {
     spotId: 3,
     userId: 1,
-    review: 'Very, very small. Nothing works and it smells horrible. Noises outside were very bothersome and I got zero work done. I will contact support for a refund.',
+    review: 'Nothing works and it smells horrible. Television was stuck on same screen entire time. I will contact support for a refund.',
     stars: 1
   },
   {
-    spotId: 1,
+    spotId: 5,
     userId: 3,
     review: 'Boring. Would not recommend if you are trying to have a good time.',
     stars: 2,
   },
   {
-    spotId: 2,
+    spotId: 6,
     userId: 2,
-    review: 'A nice place with a great view! Thanks for the hospitality.',
+    review: 'A nice place with a great view! Jacuzzi was amazing! Thanks for the hospitality.',
     stars: 4
+  },
+  {
+    spotId: 4,
+    userId: 1,
+    review: 'Wonderful, cozy little spot. Enjoyed my time here and the host was so nice.',
+    stars: 4
+  },
+  {
+    spotId: 7,
+    userId: 1,
+    review: 'Such a tremendous treehouse. Would love to stay here longer.',
+    stars: 5
+  },
+  {
+    spotId: 8,
+    userId: 3,
+    review: 'You can smell the river from the bedroom and entire area was infested with bugs and trash. Animals also come by and try to eat our food.',
+    stars: 2
   }
 ];
 

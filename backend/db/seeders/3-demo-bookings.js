@@ -39,7 +39,37 @@ const validBookings = [
     userId: 2,
     startDate: '2023-12-25',
     endDate: '2023-12-28'
-  }
+  },
+  {
+    spotId: 4,
+    userId: 5,
+    startDate: '2023-10-11',
+    endDate: '2023-10-18'
+  },
+  {
+    spotId: 5,
+    userId: 5,
+    startDate: '2023-10-19',
+    endDate: '2023-10-22'
+  },
+  {
+    spotId: 6,
+    userId: 2,
+    startDate: '2024-01-12',
+    endDate: '2024-01-14'
+  },
+  {
+    spotId: 7,
+    userId: 4,
+    startDate: '2023-09-12',
+    endDate: '2023-09-14'
+  },
+  {
+    spotId: 8,
+    userId: 4,
+    startDate: '2023-11-10',
+    endDate: '2023-11-12'
+  },
 ];
 
 
