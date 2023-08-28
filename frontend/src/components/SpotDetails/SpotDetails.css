@@ -1,0 +1,25 @@
+.spotdetails-h2 {
+  font-weight: 400;
+  color: rgb(107, 107, 107);
+}
+
+.spotdetails-previewImage {
+  width: 456px;
+  height: 424px;
+}
+
+.spotdetails-sideImages-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-left: 10px;
+  border: 1px solid red;
+}
+
+.spotdetails-sideImages {
+  width: 278px;
+  height: 50%;
+}
+
+.spotdetails-imagesplitter {
+  display: flex;
+}

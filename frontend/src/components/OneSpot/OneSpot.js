@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './OneSpot.css';
 import 'react-tooltip/dist/react-tooltip.css'
 import Tooltip from '../Tooltip/Tooltip';
@@ -8,7 +9,9 @@ function OneSpot({spot}) {
     <div className='onespot-container'>
       <div className='onespot-image-container'>
         <Tooltip content={spot.name} direction='top'>
-        <img content={spot.name} className='onespot-image' src={spot.previewImage} alt=''/>
+        <Link to={`/spots/${spot.id}`}>
+          <img content={spot.name} className='onespot-image' src={spot.previewImage} alt=''/>
+          </Link>
         </Tooltip>
       </div>
       <div className='onespot-info'>
@@ -17,7 +20,7 @@ function OneSpot({spot}) {
         <p className='onespot-price'>${spot.price} night</p>
         </div>
         <div>
-          {spot.avgRating >=1 ? <i class="fa-solid fa-star">&nbsp; {spot.avgRating}.0</i> : <p className='onespot-new'>New</p>}
+          {spot.avgRating >=1 ? <i className="fa-solid fa-star">&nbsp; {spot.avgRating}.0</i> : <p className='onespot-new'>New</p>}
         </div>
       </div>
     </div>

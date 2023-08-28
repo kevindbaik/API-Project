@@ -17,7 +17,7 @@ function AllSpots() {
   return (
     <div className='allspots-container'>
       {arrAllSpots.map(spot => (
-        <OneSpot key={spot.id} spot={spot}/>
+        <OneSpot spot={spot}/>
       ))}
     </div>
   )
