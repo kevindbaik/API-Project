@@ -16,7 +16,7 @@ function App() {
     <>
       <Navigation isLoaded={isLoaded} />
       {isLoaded && <Switch></Switch>}
-      <AllSpots/>
+      <AllSpots />
     </>
   );
 }

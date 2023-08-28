@@ -7,10 +7,10 @@
 .onespot-image {
   object-fit: cover;
   width: 100%;
-  max-width: 293px;
-  height: 278px;
+  max-width: 299px;
+  height: 283px;
 
-  border-radius: 16px;
+  border-radius: 10px;
 }
 
 .onespot-info {
