@@ -16,7 +16,7 @@
   position: absolute;
   width: 150px;
   max-width: 150px;
-  top: 60px;
+  top: 70px;
   right: 36px;
   padding: 10px;
 
@@ -48,4 +48,29 @@
 #profile-dropdown-loggedin {
   width: 230px;
   max-width: 230px;
+}
+
+.seedbnb-logo {
+  width: 167px;
+  height: 60px;
+  margin-left: 20px;
+}
+
+.user-profile-button-container:hover {
+  cursor: pointer;
+}
+
+.user-profile-button:hover {
+  cursor: pointer;
+  box-shadow: 2px 2px #d6d6d6;
+  transition-delay: 4ms;
+}
+
+.user-profile-button:focus {
+  box-shadow: 2px 2px #d6d6d6;
+}
+
+.modal-text:hover {
+  background-color:#f8f8f8;
+  transition-delay: 2ms;
 }
