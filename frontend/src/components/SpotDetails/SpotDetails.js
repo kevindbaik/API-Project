@@ -50,7 +50,7 @@ function SpotDetails() {
             <p className='spotdetails-numreviews'>{spot?.numReviews} reviews</p>
             </div>
           </div>
-          <button onClick={() => {alert('Feature coming')}} className='reserve-button'>Reserve</button>
+          <button onClick={() => {alert('Feature coming soon!')}} className='reserve-button'>Reserve</button>
         </div>
       </div>
     </div>
