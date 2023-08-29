@@ -83,3 +83,10 @@
   background-color:#f8f8f8;
   transition-delay: 2ms;
 }
+
+.loggedin-nav-container {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  border: 1px solid red;
+}
