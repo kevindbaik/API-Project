@@ -36,8 +36,8 @@ module.exports = {
         email: 'iowneverything@airbnb.com',
         username: 'rentcollector3000',
         hashedPassword: bcrypt.hashSync('landlord'),
-        firstName: 'Land',
-        lastName: 'Lord'
+        firstName: 'Kevin',
+        lastName: 'Baik'
       },
       {
         email: 'demouser@appacademy.com',
