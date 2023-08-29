@@ -7,7 +7,6 @@ import logo from '../../images/Seedbnb.svg'
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
-  console.log('user', sessionUser)
   return (
     <div className='nav-container'>
       <NavLink exact to="/">
