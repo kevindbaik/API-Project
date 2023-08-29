@@ -23,25 +23,25 @@
 .onespot-location {
   font-size: 15px;
   padding-top: 0px;
-  margin-top: 8px;
+  margin-top: 4px;
   margin-bottom: 0px;
 }
 
 .onespot-price {
   font-size: 13px;
-  margin-top: 7px;
+  margin-top: 4px;
 
-  color: rgb(108, 108, 108);
+  color: rgb(121, 121, 121);
 }
 
 .onespot-new {
   font-size: 14px;
-  margin-top: 8px;
+  margin-top: 4px;
 }
 
 .fa-star {
   color: rgb(6, 7, 6);
-  margin-top: 8px;
+  margin-top: 5px;
   font-size: 11px;
 }
 

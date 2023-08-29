@@ -59,9 +59,10 @@
 
 
 .seedbnb-logo {
-  width: 155px;
+  width: 156px;
   height: 56px;
   margin-left: 20px;
+  object-fit: contain;
 }
 
 .user-profile-button-container:hover {
