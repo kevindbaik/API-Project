@@ -29,7 +29,7 @@ function SpotDetails() {
       <div className='spotdetails-imagesplitter'>
         <img className='spotdetails-previewImage' src={previewImage.url} alt=''></img>
         <div className='spotdetails-sideImages-container'>
-          {otherImages.length && otherImages.map((image, index) => (
+          {otherImages.map((image, index) => (
             <img id={index === 1 && "topright" || index === 3 && "bottomright"} className='spotdetails-sideImages' src={image.url} alt=''></img>
           ))}
         </div>
@@ -39,7 +39,7 @@ function SpotDetails() {
       </div>
       <div className='spotdetails-information-container'>
         <div className='spotdetails-description'>
-          {spot.description}
+          <p>{spot.description}</p>
           <p className='spotdetails-descriptionlink'>Show more </p>
         </div>
         <div className='spotdetails-reservebox'>

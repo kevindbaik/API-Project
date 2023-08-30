@@ -17,7 +17,7 @@ function Navigation({ isLoaded }){
       )}
       {isLoaded && sessionUser && (
         <div className='loggedin-nav-container'>
-        <Link to='/spots/new'> Create a New Tree </Link>
+        <NavLink className='nav-newspotlink' to='/spots/new'> Create a New Spot </NavLink>
         <ProfileButton user={sessionUser} />
         </div>
       )}

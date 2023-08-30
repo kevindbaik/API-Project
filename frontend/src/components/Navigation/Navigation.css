@@ -57,12 +57,28 @@
   z-index: 10;
 }
 
-
 .seedbnb-logo {
   width: 158px;
   height: 59px;
   margin-left: 20px;
   object-fit: contain;
+}
+
+.nav-newspotlink {
+  text-decoration: none;
+  color: rgb(82, 204, 82);
+  font-size: 14px;
+  position: absolute;
+  right: 114px;
+  top: 32px;
+  padding: 7px 12px;
+}
+
+.nav-newspotlink:hover {
+  cursor: pointer;
+  background-color:rgb(243, 243, 243);
+  border-radius: 20px;
+  transition-delay: 0ms;
 }
 
 .user-profile-button-container:hover {
@@ -88,5 +104,4 @@
   display: flex;
   align-items: center;
   gap: 17px;
-  border: 1px solid red;
 }
