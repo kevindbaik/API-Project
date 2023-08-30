@@ -75,6 +75,27 @@ form {
   margin-bottom: 24px;
 }
 
+.form-submitbutton {
+  color: white;
+  background-color:rgb(88, 163, 88);
+  border: none;
+  width: 140px;
+  height: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-submitbutton:hover {
+  cursor: pointer;
+  background-color: rgb(96, 165, 96);
+}
+
+.form-submitbutton:active {
+  background-color: rgb(96, 165, 96);
+  box-shadow: 0 2px #8f8f8f;
+  transform: translateY(1px);
+}
+
 .form-errors {
   color: red;
   margin: 0px;
