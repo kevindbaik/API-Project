@@ -48,7 +48,7 @@ function ProfileButton({ user }) {
   return (
     <div className="user-profile-button-container">
       { user ? (
-      <NavLink className='nav-newspotlink' to='/spots/new'> Create a New Spot </NavLink>
+      <NavLink className='nav-newspotlink' to='/spots/new'> Create a New Spot +</NavLink>
       ): null }
       <button className="user-profile-button" onClick={openMenu}>
         <i className="fa-solid fa-bars" />
@@ -57,12 +57,13 @@ function ProfileButton({ user }) {
       <div id={divUser} className={divShow} ref={ulRef}>
         {user ? (
           <div className='logged-in-dropdown'>
-            <p>Hello, {user.firstName}.</p>
-            <p>{user.email}</p>
-            <NavLink onClick={closeMenu} to='/spots/current'>Manage Spot</NavLink>
-            <p>
-              <button onClick={logout}>Log Out</button>
-            </p>
+            <p className='loggedin-text'>Hello, {user.firstName}!</p>
+            <div className='loggedin-line'></div>
+            <p className='loggedin-text'>{user.email}</p>
+            <div className='loggedin-line'></div>
+            <NavLink className='loggedin-text' onClick={closeMenu} to='/spots/current'>Manage Spots</NavLink>
+            <div className='loggedin-line'></div>
+            <button className="logout-button" onClick={logout}>Log Out</button>
           </div>
         ) : (
           <div>

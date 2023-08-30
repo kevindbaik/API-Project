@@ -12,9 +12,6 @@ function OneSpot({spot}) {
     manage = true;
   };
 
-  useEffect(() => {
-
-  }, [spot])
   return (
     <div className='onespot-container'>
       <div className='onespot-image-container'>
@@ -30,13 +27,13 @@ function OneSpot({spot}) {
         <p className='onespot-price'>${spot.price} night</p>
         </div>
         <div>
-          {spot.avgRating >=1 ? <i className="fa-solid fa-star">&nbsp; {spot.avgRating}.0</i> : <p className='onespot-new'>New</p>}
+          {spot.avgRating >=1 ? <div className='star-rating-container'> <i className="fa-solid fa-star"></i> <p>{spot.avgRating}.0</p> </div> : <p className='onespot-new'>New</p>}
         </div>
       </div>
         {manage &&
         <div className='update-delete-container'>
           <NavLink to={`/spots/${spot.id}/edit`}>
-          <button>Update</button>
+          <button className='manage-updatebutton'>Update</button>
           </NavLink>
           <OpenModalMenuItem
           itemText='Delete'

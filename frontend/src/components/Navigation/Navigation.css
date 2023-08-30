@@ -49,8 +49,9 @@
 
 #profile-dropdown-loggedin {
   z-index: 10;
-  width: 230px;
+  width: 200px;
   max-width: 230px;
+  word-wrap: break-word;
 }
 
 #profile-dropdown-loggedout {
@@ -66,11 +67,11 @@
 
 .nav-newspotlink {
   text-decoration: none;
-  color: rgb(84, 156, 84);
+  color: rgb(16, 81, 7);
   font-size: 14px;
   position: absolute;
-  right: 114px;
-  top: 32px;
+  right: 110px;
+  top: 31px;
   padding: 7px 12px;
 }
 
@@ -104,4 +105,27 @@
   display: flex;
   align-items: center;
   gap: 17px;
+}
+
+.loggedin-text {
+  font-size: 14px;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  transition-delay: 0s;
+  margin: 0px;
+}
+
+.loggedin-text:hover {
+  color: rgb(53, 165, 38);
+  transition-delay: 0s;
+}
+
+.logout-button {
+  margin-top: 12px;
+}
+
+.loggedin-line {
+  border-top: 1px solid rgb(195, 195, 195);
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
