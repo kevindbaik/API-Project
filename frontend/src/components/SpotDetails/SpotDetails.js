@@ -14,17 +14,13 @@ function SpotDetails() {
     dispatch(thunkGetSpotDetails(spotId))
   }, [dispatch, spotId]);
 
-  if(spot === undefined || Object.keys(spot).length === 0) return null
+  if(!spot || Object.keys(spot).length === 0) return null
 
   let previewImage = {};
-  let otherImages;
-
-  if(spot.SpotImages) {
   spot.SpotImages.forEach(image => {
       if(image.preview) previewImage = image
     });
-  otherImages = spot.SpotImages.filter(image => !image.preview);
-  }
+  const otherImages = spot.SpotImages.filter(image => !image.preview);
 
   return (
     <div className='spotdetails-container'>
@@ -39,7 +35,7 @@ function SpotDetails() {
         </div>
       </div>
       <div className='spotdetails-host'>Treehome hosted by:
-        {spot.Owner && <p className='spotdetails-hostname'>&nbsp;{spot.Owner.firstName} {spot.Owner.lastName}</p>}
+        <p className='spotdetails-hostname'>&nbsp;{spot.Owner.firstName} {spot.Owner.lastName}</p>
       </div>
       <div className='spotdetails-information-container'>
         <div className='spotdetails-description'>

@@ -2,8 +2,6 @@ import { csrfFetch } from "./csrf";
 
 export const LOAD_SPOTS = 'spots/getSpots';
 export const LOAD_DETAILS ='spots/getSpotDetails';
-export const CREATE_SPOT = 'spots/createSpot';
-export const CREATE_SPOTIMAGE = 'spots/createSpotImage'
 
 const loadSpots = (spots) => {
   return {
@@ -30,7 +28,8 @@ export const thunkGetSpotDetails = (spotId) => async(dispatch) => {
   const response = await csrfFetch(`/api/spots/${spotId}`);
   if(response.ok) {
     const data = await response.json();
-    dispatch(getSpotDetails(data))
+    dispatch(getSpotDetails(data));
+    return data;
   }
 };
 
@@ -70,7 +69,7 @@ const spotsReducer = (state = initialState, action) => {
   switch(action.type) {
     case LOAD_SPOTS:
       newState = { ...state,
-        allSpots: { ...state.allSpots }
+        allSpots: {}
       }
       action.spots.Spots.forEach((spot) => {
         newState.allSpots[spot.id] = spot;
@@ -78,13 +77,9 @@ const spotsReducer = (state = initialState, action) => {
       return newState;
     case LOAD_DETAILS:
       newState = {...state,
-        oneSpot: { ...state.oneSpot }}
+        oneSpot:{} }
       newState.oneSpot = action.spot
       return newState;
-    case CREATE_SPOT:
-        return state
-      case CREATE_SPOTIMAGE:
-        return state;
     default:
       return state
   }
