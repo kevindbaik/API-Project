@@ -57,6 +57,7 @@ function ProfileButton({ user }) {
           <div className='logged-in-dropdown'>
             <p>Hello, {user.firstName}.</p>
             <p>{user.email}</p>
+            <NavLink to='/spots/current'>Manage Spot</NavLink>
             <p>
               <button onClick={logout}>Log Out</button>
             </p>

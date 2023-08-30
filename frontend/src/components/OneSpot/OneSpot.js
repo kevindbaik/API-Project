@@ -5,6 +5,12 @@ import 'react-tooltip/dist/react-tooltip.css'
 import Tooltip from '../Tooltip/Tooltip';
 
 function OneSpot({spot}) {
+
+  let manage = false;
+  if (window.location.href.endsWith("current")) {
+    manage = true;
+  };
+
   return (
     <div className='onespot-container'>
       <div className='onespot-image-container'>
@@ -23,6 +29,12 @@ function OneSpot({spot}) {
           {spot.avgRating >=1 ? <i className="fa-solid fa-star">&nbsp; {spot.avgRating}.0</i> : <p className='onespot-new'>New</p>}
         </div>
       </div>
+        {manage &&
+        <div className='update-delete-container'>
+          <button>Update</button>
+          <button>Delete</button>
+        </div>
+        }
     </div>
   )
 }

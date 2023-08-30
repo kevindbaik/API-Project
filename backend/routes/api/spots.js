@@ -183,13 +183,7 @@ async(req, res) => {
     delete spot.SpotImages;
   })
 
-  if(spots.length) {
-    res.status(200)
-    return res.json({Spots: allSpots})
-  } else {
-    res.status(404)
-    return res.json({message: 'User does not own any spots.'})
-  };
+  return res.json({Spots: allSpots})
 });
 
 // get all bookings for a spot based on spot id

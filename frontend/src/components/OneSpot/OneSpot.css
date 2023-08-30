@@ -23,28 +23,34 @@
 .onespot-location {
   font-size: 15px;
   padding-top: 0px;
-  margin-top: 4px;
+  margin-top: 8px;
   margin-bottom: 0px;
 }
 
 .onespot-price {
   font-size: 13px;
-  margin-top: 4px;
+  margin-top: 7px;
 
-  color: rgb(121, 121, 121);
+  color: rgb(108, 108, 108);
 }
 
 .onespot-new {
   font-size: 14px;
-  margin-top: 4px;
+  margin-top: 8px;
 }
 
 .fa-star {
   color: rgb(6, 7, 6);
-  margin-top: 5px;
+  margin-top: 8px;
   font-size: 11px;
 }
 
 .onespot-image:hover {
   cursor: pointer;
+}
+
+.update-delete-container {
+  display: flex;
+  column-gap: 10px;
+  margin-bottom: 15px;
 }

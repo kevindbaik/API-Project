@@ -1,3 +1,4 @@
+import { legacy_createStore } from "redux";
 import { csrfFetch } from "./csrf";
 
 export const LOAD_SPOTS = 'spots/getSpots';
@@ -57,6 +58,15 @@ export const thunkCreateImageForSpot = (newSpotId, url, preview) => async(dispat
     const data = await response.json();
     return data;
   }
+};
+
+export const thunkLoadUserSpots = () => async(dispatch) => {
+  const response = await csrfFetch('/api/spots/current');
+  if(response.ok) {
+    const data = await response.json();
+    dispatch(loadSpots(data));
+    return data;
+  };
 }
 
 const initialState = {
