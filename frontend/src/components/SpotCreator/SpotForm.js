@@ -254,6 +254,8 @@ function SpotForm() {
         placeholder='Image URL'/>
          {errors.urlFour && <p className='form-errors urlFour'>{errors.urlFour}</p>}
 
+         <div className='form-line'></div>
+
         <button className='form-submitbutton' type='submit'>Create Spot</button>
       </form>
 

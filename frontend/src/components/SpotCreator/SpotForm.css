@@ -81,8 +81,7 @@ form {
   border: none;
   width: 140px;
   height: 30px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 20px auto;
 }
 
 .form-submitbutton:hover {
