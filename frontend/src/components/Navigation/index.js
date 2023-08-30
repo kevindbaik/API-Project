@@ -12,14 +12,8 @@ function Navigation({ isLoaded }){
       <NavLink exact to="/">
         <img className='seedbnb-logo' src={logo} alt=''/>
       </NavLink>
-      {isLoaded && !sessionUser && (
+      {isLoaded && (
           <ProfileButton user={sessionUser} />
-      )}
-      {isLoaded && sessionUser && (
-        <div className='loggedin-nav-container'>
-        <NavLink className='nav-newspotlink' to='/spots/new'> Create a New Spot </NavLink>
-        <ProfileButton user={sessionUser} />
-        </div>
       )}
     </div>
   );

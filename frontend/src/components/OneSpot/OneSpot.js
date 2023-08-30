@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './OneSpot.css';
 import 'react-tooltip/dist/react-tooltip.css'
 import Tooltip from '../Tooltip/Tooltip';
@@ -9,9 +9,9 @@ function OneSpot({spot}) {
     <div className='onespot-container'>
       <div className='onespot-image-container'>
         <Tooltip content={spot.name} direction='top'>
-        <Link to={`/spots/${spot.id}`}>
+        <NavLink to={`/spots/${spot.id}`}>
           <img content={spot.name} className='onespot-image' src={spot.previewImage} alt=''/>
-          </Link>
+        </NavLink>
         </Tooltip>
       </div>
       <div className='onespot-info'>

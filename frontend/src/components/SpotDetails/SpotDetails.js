@@ -1,4 +1,3 @@
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { thunkGetSpotDetails } from '../../store/spots';
@@ -16,10 +15,7 @@ function SpotDetails() {
 
   if(!spot || Object.keys(spot).length === 0) return null
 
-  let previewImage = {};
-  spot.SpotImages.forEach(image => {
-      if(image.preview) previewImage = image
-    });
+  let previewImage = spot.SpotImages.find(image => image.preview)
   const otherImages = spot.SpotImages.filter(image => !image.preview);
 
   return (
