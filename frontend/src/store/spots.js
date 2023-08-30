@@ -3,6 +3,7 @@ import { csrfFetch } from "./csrf";
 
 export const LOAD_SPOTS = 'spots/getSpots';
 export const LOAD_DETAILS ='spots/getSpotDetails';
+export const DELETE_SPOT = 'spots/deleteSpot'
 
 const loadSpots = (spots) => {
   return {
@@ -16,8 +17,14 @@ const getSpotDetails = (spot) => ({
   spot
 });
 
+const deleteSpot = (spotId) => ({
+  type: DELETE_SPOT,
+  spotId
+})
+
 export const thunkLoadSpots = () => async(dispatch) => {
   const response = await csrfFetch('/api/spots');
+
   if(response.ok) {
     const data = await response.json();
     dispatch(loadSpots(data));
@@ -27,8 +34,8 @@ export const thunkLoadSpots = () => async(dispatch) => {
 
 export const thunkGetSpotDetails = (spotId) => async(dispatch) => {
   const response = await csrfFetch(`/api/spots/${spotId}`);
+
   if(response.ok) {
-    console.log(response)
     const data = await response.json();
     dispatch(getSpotDetails(data));
     return data;
@@ -69,6 +76,7 @@ export const thunkCreateImageForSpot = (newSpotId, url, preview) => async(dispat
     headers: {"Content-Type":"application/json"},
     body: JSON.stringify({url, preview})
   });
+
   if(response.ok) {
     const data = await response.json();
     return data;
@@ -82,6 +90,18 @@ export const thunkLoadUserSpots = () => async(dispatch) => {
     dispatch(loadSpots(data));
     return data;
   };
+};
+
+export const thunkDeleteSpot = (spotId) => async(dispatch) => {
+  const response = await csrfFetch(`/api/spots/${spotId}`, {
+    method: "DELETE"
+  })
+
+  if(response.ok) {
+    const data = await response.json();
+    dispatch(deleteSpot(spotId));
+    return data
+  }
 }
 
 const initialState = {
@@ -104,6 +124,11 @@ const spotsReducer = (state = initialState, action) => {
       newState = {...state,
         oneSpot:{} }
       newState.oneSpot = action.spot
+      return newState;
+    case DELETE_SPOT:
+      newState = { ...state, allSpots : { ...state.allSpots }, oneSpot: { ...state.oneSpot }}
+      delete newState.allSpots[action.spotId];
+      delete newState.oneSpot[action.spotId];
       return newState;
     default:
       return state
