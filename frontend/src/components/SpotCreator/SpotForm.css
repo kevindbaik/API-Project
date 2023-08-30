@@ -1,18 +1,149 @@
 .form-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 20px;
-  width: 550px;
-  border: 1px solid red;
+  margin-top: 10px;
+  width: 430px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-header {
+  margin-bottom: 0px;
+  font-size: 28px;
+}
+
+.form-header2 {
+  font-weight: bold;
+  margin-top: 12px;
+  margin-bottom: 0px;
+  font-size: 22px;
+}
+
+.form-header3 {
+  font-size: 15px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  color: gray
+}
+
+.form-citystate-container {
+  display: flex;
+  column-gap: 10px;
+  margin-bottom: 10px;
+}
+
+.form-city {
+  width: 300px;
+}
+
+.form-citystate {
+  display: flex;
+  flex-direction: column;
 }
 
 .spotform-inputs {
   display: flex;
   flex-direction: column;
+}
+
+.form-textarea {
+  height: 100px;
+  margin-bottom: 29px;
+}
+
+.form-line {
+  border-top: 1px solid rgb(164, 164, 164);
+}
+
+.form-name {
+  margin-bottom: 29px;
+}
+
+.form-price {
+  margin-left: 10px;
+  width: 204px;
+  margin-bottom: 23px;
+}
+
+.form-url {
+  margin-bottom: 24px;
+}
+
+.form-errors {
+  color: red;
+  margin: 0px;
+  font-size: 13px;
+}
+
+.country {
+  position: absolute;
+  top: 254px;
+  left: 355px;
+}
+
+.address {
+  position: absolute;
+  top: 315px;
+  left: 407px;
+}
+
+.city {
+  position: absolute;
+  top: 376px;
+  left: 325px;
+}
+
+.state {
+  position: absolute;
+  top: 376px;
+  right: 302px;
+}
+
+.description {
+  position: absolute;
+  top: 676px;
+}
+
+.name {
+  position: absolute;
+  top: 828px;
+}
+
+.price {
+  position: absolute;
+  top: 955px;
+  left: 530px;
+}
+
+.preview {
+  position: absolute;
+  top: 1105px
+}
+
+.urlOne {
+  position: absolute;
+  top: 1152px
+}
+
+.urlTwo {
+  position: absolute;
+  top: 1199px
+}
+
+.urlThree {
+  position: absolute;
+  top: 1244px
+}
+
+.urlFour {
+  position: absolute;
+  top: 1290px
 }
 
 textarea {

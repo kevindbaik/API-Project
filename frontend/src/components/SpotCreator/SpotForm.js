@@ -15,7 +15,7 @@ function SpotForm() {
   const [ state, setState ] = useState("")
   const [ description, setDescription ] = useState("");
   const [ name, setName ] = useState("");
-  const [ price, setPrice ] = useState(0);
+  const [ price, setPrice ] = useState("");
   const [ preview, setPreview ] = useState("");
   const [ urlOne, setUrlOne ] = useState("");
   const [ urlTwo, setUrlTwo ] = useState("");
@@ -43,21 +43,50 @@ function SpotForm() {
   country,
   name,
   description,
-  price
+  price,
+  preview,
+  urlOne,
+  urlTwo,
+  urlThree,
+  urlFour
 ) {
   const errorsObj = {};
-  if(address.length < 4) errorsObj['address'] = 'Valid address is required.';
-  if(city.length < 1) errorsObj['city'] = 'Valid city is required.';
-  if(state.length < 1) errorsObj['state'] = 'Valid state is required.'
-  if(country.length < 2) errorsObj['country'] = 'Valid country is required.';
-  if(name.length < 1) errorsObj['name'] = 'Valid name is required.';
+  if(address.length < 4) errorsObj['address'] = 'Address is required.';
+  if(city.length < 1) errorsObj['city'] = 'City is required.';
+  if(state.length < 1) errorsObj['state'] = 'State is required.'
+  if(country.length < 2) errorsObj['country'] = 'Country is required.';
+  if(name.length < 1) errorsObj['name'] = 'Name is required.';
   if(description.length < 30) errorsObj['description'] = 'Description must be at least 30 characters.';
-  if(price <= 0) errorsObj['price'] = 'Valid price is required.';
-  if(preview.length < 1) errorsObj['preview'] = 'Preview image is required.'
+  if(price <= 0) errorsObj['price'] = 'Price is required.';
+  if(preview.length < 1) errorsObj['preview'] = 'Preview image is required.';
+  if(urlOne) {
+    if(urlOne.toLowerCase().endsWith(".png") || urlOne.toLowerCase().endsWith(".jpeg") || urlOne.toLowerCase().endsWith(".jpg")) {}
+    else {
+    errorsObj['urlOne'] = 'Image URL must end in .png, .jpg, or .jpeg'
+    }
+  };
+  if(urlTwo) {
+    if(urlTwo.toLowerCase().endsWith(".png") || urlTwo.toLowerCase().endsWith(".jpeg") || urlTwo.toLowerCase().endsWith(".jpg")) {}
+    else {
+      errorsObj['urlTwo'] = 'Image URL must end in .png, .jpg, or .jpeg'
+    }
+  };
+  if(urlThree) {
+    if(urlThree.toLowerCase().endsWith(".png") || urlThree.toLowerCase().endsWith(".jpeg") || urlThree.toLowerCase().endsWith(".jpg")) {}
+    else {
+      errorsObj['urlThree'] = 'Image URL must end in .png, .jpg, or .jpeg'
+    }
+  };
+  if(urlFour) {
+    if (urlFour.toLowerCase().endsWith(".png") || urlFour.toLowerCase().endsWith(".jpeg") || urlFour.toLowerCase().endsWith(".jpg")) {}
+    else {
+      errorsObj['urlFour'] = 'Image URL must end in .png, .jpg, or .jpeg'
+    }
+  }
+
 
   return errorsObj;
 }
-
   // hard code lat/long values because its optional
   const lat = 11;
   const lng = 14;
@@ -71,15 +100,18 @@ function SpotForm() {
       country,
       name,
       description,
-      price
+      price,
+      preview,
+      urlOne,
+      urlTwo,
+      urlThree,
+      urlFour
     );
 
     setErrors(foundErrors);
-
-    if(Object.values(errors).length > 0) {
-      console.log('error found!', foundErrors)
+    if(Object.values(foundErrors).length > 0) {
       return null
-    }
+    };
 
     const payload = {
       address,
@@ -92,7 +124,6 @@ function SpotForm() {
       description,
       price
     };
-
     let newSpot = await dispatch(thunkCreateSpot(payload));
     if(newSpot) {
       dispatch(thunkCreateImageForSpot(newSpot.id, preview, true))
@@ -108,9 +139,9 @@ function SpotForm() {
 
   return (
     <div className='form-container'>
-      <h1>Create a New Spot</h1>
-      <h2>Where's your treehouse located?</h2>
-      <p>Guests will only get your exact address once they booked a reservation.</p>
+      <h1 className='form-header'>Create a New Spot</h1>
+      <h2 className='form-header2'>Where's your treehouse located?</h2>
+      <p className='form-header3'>Guests will only get your exact address once they booked a reservation.</p>
 
       <form onSubmit={handleSubmit}>
         <label>Country</label>
@@ -119,7 +150,7 @@ function SpotForm() {
         value={country}
         onChange={updateCountry}
         placeholder='Country'/>
-        {errors.country && <p>{errors.country}</p>}
+        {errors.country && <p className='form-errors country'>{errors.country}</p>}
 
         <label>Street Address</label>
         <input type='text'
@@ -127,76 +158,101 @@ function SpotForm() {
         value={address}
         onChange={updateAddress}
         placeholder='Address'/>
-        {errors.address && <p className='form-errors'>{errors.address}</p>}
+        {errors.address && <p className='form-errors address'>{errors.address}</p>}
 
+        <div className='form-citystate-container'>
+        <div className='form-citystate  form-city'>
         <label>City</label>
         <input type='text'
         name='city' value={city}
         onChange={updateCity}
         placeholder='City'/>
-         {errors.city && <p className='form-errors'>{errors.city}</p>}
+        </div>
+         {errors.city && <p className='form-errors city'>{errors.city}</p>}
 
+        <div className='form-citystate'>
         <label>State</label>
         <input type='text'
         name='state'
         value={state}
         onChange={updateState}
         placeholder='STATE'/>
-         {errors.state && <p className='form-errors'>{errors.state}</p>}
+        </div>
+         {errors.state && <p className='form-errors state'>{errors.state}</p>}
+         </div>
 
-        <h2>Describe your place to guests</h2>
-        <p>Mention the best features of your space, any special amentities like fast wifi or parking, and tree shape or wood type.</p>
-        <textarea value={description}
+        <div className='form-line'></div>
+
+        <h2 className='form-header2'>Describe your place to guests</h2>
+        <p className='form-header3'>Mention the best features of your space, any special amentities like fast wifi or parking, and tree shape or wood type.</p>
+        <textarea className='form-textarea' value={description}
         onChange={updateDescription}
         placeholder='Please write at least 30 characters'/>
-         {errors.description && <p className='form-errors'>{errors.description}</p>}
+         {errors.description && <p className='form-errors description'>{errors.description}</p>}
 
-        <label>Create a title for your treehome</label>
-        <p>Catch guests attention with a title that highlights what makes your tree special.</p>
-        <input type='text'
+         <div className='form-line'></div>
+
+        <label className='form-header2'>Create a title for your treehome</label>
+        <p className='form-header3'>Catch guests attention with a title that highlights what makes your tree special.</p>
+        <input className='form-name' type='text'
         name='name'
         value={name}
         onChange={updateName}
         placeholder='Name of your spot'/>
-         {errors.name && <p className='form-errors'>{errors.name}</p>}
+         {errors.name && <p className='form-errors name'>{errors.name}</p>}
 
-        <label>Set a base price for your tree</label>
-        <p>Competitive pricing can help your listing stand out and rank higher in search results.</p>
-        <input type='number'
+         <div className='form-line'></div>
+
+        <label className='form-header2'>Set a base price for your tree</label>
+        <p className='form-header3'>Competitive pricing can help your listing stand out and rank higher in search results.</p>
+        <div>
+        <i class="fa-solid fa-dollar-sign"></i>
+        <input className='form-price' type='number'
         name='price'
         value={price}
         onChange={updatePrice}
         placeholder='Price per night (USD)'/>
-         {errors.price && <p className='form-errors'>{errors.price}</p>}
+        </div>
+         {errors.price && <p className='form-errors price'>{errors.price}</p>}
 
-        <label>Liven up your tree with photos</label>
-        <p>Submit a link to at least one photo to publish your treehouse.</p>
-        <input type='url'
+        <div className='form-line'></div>
+
+        <label className='form-header2'>Liven up your tree with photos</label>
+        <p className='form-header3'>Submit a link to at least one photo to publish your treehouse.</p>
+        <input className='form-url' type='url'
         name='previewURL'
         value={preview}
         onChange={updatePreview}
         placeholder='Preview Image URL'/>
-         {errors.preview && <p className='form-errors'>{errors.preview}</p>}
-        <input type='url'
+        {errors.preview && <p className='form-errors preview'>{errors.preview}</p>}
+
+        <input className='form-url' type='url'
         name='additionalURL'
         value={urlOne}
         onChange={updateUrlOne}
         placeholder='Image URL'/>
-        <input type='url'
+        {errors.urlOne && <p className='form-errors urlOne'>{errors.urlOne}</p>}
+
+        <input className='form-url' type='url'
         name='additionalURL'
         value={urlTwo}
         onChange={updateUrlTwo}
         placeholder='Image URL'/>
-        <input type='url'
+        {errors.urlTwo && <p className='form-errors urlTwo'>{errors.urlTwo}</p>}
+
+        <input className='form-url' type='url'
         name='additionalURL'
         value={urlThree}
         onChange={updateUrlThree}
         placeholder='Image URL'/>
-        <input type='url'
+        {errors.urlThree && <p className='form-errors urlThree'>{errors.urlThree}</p>}
+
+        <input className='form-url' type='url'
         name='additionalURL'
         value={urlFour}
         onChange={updateUrlFour}
         placeholder='Image URL'/>
+         {errors.urlFour && <p className='form-errors urlFour'>{errors.urlFour}</p>}
 
         <button type='submit'>Submit</button>
       </form>
