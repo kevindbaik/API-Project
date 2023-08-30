@@ -7,8 +7,9 @@ import { thunkLoadSpots } from '../../store/spots';
 
 function AllSpots() {
   const dispatch = useDispatch();
-  const objAllSpots = useSelector(state => state.spots);
+  const objAllSpots = useSelector(state => state.spots.allSpots);
   const arrAllSpots = Object.values(objAllSpots);
+
 
   useEffect(() => {
     dispatch(thunkLoadSpots())

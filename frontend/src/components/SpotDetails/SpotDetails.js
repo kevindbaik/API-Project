@@ -17,11 +17,14 @@ function SpotDetails() {
   if(spot === undefined || Object.keys(spot).length === 0) return null
 
   let previewImage = {};
-  spot.SpotImages.forEach(image => {
-    if(image.preview) previewImage = image
-  });
+  let otherImages;
 
-  let otherImages = spot.SpotImages.filter(image => !image.preview);
+  if(spot.SpotImages) {
+  spot.SpotImages.forEach(image => {
+      if(image.preview) previewImage = image
+    });
+  otherImages = spot.SpotImages.filter(image => !image.preview);
+  }
 
   return (
     <div className='spotdetails-container'>
@@ -36,7 +39,7 @@ function SpotDetails() {
         </div>
       </div>
       <div className='spotdetails-host'>Treehome hosted by:
-        <p className='spotdetails-hostname'>&nbsp;{spot.Owner.firstName} {spot.Owner.lastName}</p>
+        {spot.Owner && <p className='spotdetails-hostname'>&nbsp;{spot.Owner.firstName} {spot.Owner.lastName}</p>}
       </div>
       <div className='spotdetails-information-container'>
         <div className='spotdetails-description'>

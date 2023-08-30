@@ -1,7 +1,9 @@
 import { csrfFetch } from "./csrf";
 
 export const LOAD_SPOTS = 'spots/getSpots';
-export const LOAD_DETAILS ='spots/getSpotDetails'
+export const LOAD_DETAILS ='spots/getSpotDetails';
+export const CREATE_SPOT = 'spots/createSpot';
+export const CREATE_SPOTIMAGE = 'spots/createSpotImage'
 
 const loadSpots = (spots) => {
   return {
@@ -13,7 +15,7 @@ const loadSpots = (spots) => {
 const getSpotDetails = (spot) => ({
   type: LOAD_DETAILS,
   spot
-})
+});
 
 export const thunkLoadSpots = () => async(dispatch) => {
   const response = await csrfFetch('/api/spots');
@@ -28,29 +30,61 @@ export const thunkGetSpotDetails = (spotId) => async(dispatch) => {
   const response = await csrfFetch(`/api/spots/${spotId}`);
   if(response.ok) {
     const data = await response.json();
-    console.log(data)
     dispatch(getSpotDetails(data))
+  }
+};
+
+export const thunkCreateSpot = (spot) => async(dispatch) => {
+  const response = await csrfFetch('/api/spots', {
+    method: "POST",
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify(spot)
+  });
+
+  if(response.ok) {
+    const data = await response.json();
+    return data;
+  }
+};
+
+export const thunkCreateImageForSpot = (newSpotId, url, preview) => async(dispatch) => {
+  if(url === "") return null;
+  const response = await csrfFetch(`/api/spots/${newSpotId}/images`, {
+    method: "POST",
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify({url, preview})
+  });
+  if(response.ok) {
+    const data = await response.json();
+    return data;
   }
 }
 
 const initialState = {
   allSpots : {},
-  oneSpot: {}
+  oneSpot: {},
 }
 
 const spotsReducer = (state = initialState, action) => {
   let newState;
   switch(action.type) {
     case LOAD_SPOTS:
-      newState = {};
+      newState = { ...state,
+        allSpots: { ...state.allSpots }
+      }
       action.spots.Spots.forEach((spot) => {
-        newState[spot.id] = spot;
+        newState.allSpots[spot.id] = spot;
       });
-      return newState
-    case LOAD_DETAILS:
-      const oneSpot = action.spot
-      newState = {...state, oneSpot}
       return newState;
+    case LOAD_DETAILS:
+      newState = {...state,
+        oneSpot: { ...state.oneSpot }}
+      newState.oneSpot = action.spot
+      return newState;
+    case CREATE_SPOT:
+        return state
+      case CREATE_SPOTIMAGE:
+        return state;
     default:
       return state
   }
