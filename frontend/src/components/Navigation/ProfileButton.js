@@ -12,6 +12,7 @@ function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
+  const history = useHistory();
 
   const openMenu = () => {
     if (showMenu) return;
@@ -38,6 +39,7 @@ function ProfileButton({ user }) {
     e.preventDefault();
     dispatch(sessionActions.logout());
     closeMenu();
+    history.push('/')
   };
 
   const divShow = "profile-dropdown" + (showMenu ? "" : " hidden");
@@ -57,7 +59,7 @@ function ProfileButton({ user }) {
           <div className='logged-in-dropdown'>
             <p>Hello, {user.firstName}.</p>
             <p>{user.email}</p>
-            <NavLink to='/spots/current'>Manage Spot</NavLink>
+            <NavLink onClick={closeMenu} to='/spots/current'>Manage Spot</NavLink>
             <p>
               <button onClick={logout}>Log Out</button>
             </p>

@@ -31,7 +31,9 @@ function OneSpot({spot}) {
       </div>
         {manage &&
         <div className='update-delete-container'>
+          <NavLink to={`/spots/${spot.id}/edit`}>
           <button>Update</button>
+          </NavLink>
           <button>Delete</button>
         </div>
         }

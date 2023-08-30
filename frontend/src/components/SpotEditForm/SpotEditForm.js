@@ -1,8 +1,9 @@
 import React from 'react'
+import spotsReducer from '../../store/spots'
 
 function SpotEditForm() {
   return (
-    <div>SpotEditForm</div>
+    <div>Hello!</div>
   )
 }
 
