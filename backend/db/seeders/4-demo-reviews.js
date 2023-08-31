@@ -47,7 +47,7 @@ const validReviews = [
   },
   {
     spotId: 7,
-    userId: 1,
+    userId: 4,
     review: 'Such a tremendous treehouse. Would love to stay here longer.',
     stars: 5
   },
