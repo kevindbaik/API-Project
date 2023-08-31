@@ -4,15 +4,24 @@ import { thunkGetSpotDetails } from '../../store/spots';
 import { useParams } from 'react-router-dom';
 import ReviewComponent from '../ReviewComponent/ReviewComponent';
 import './SpotDetails.css';
+import { thunkLoadReviews } from '../../store/reviews';
 
 function SpotDetails() {
   const { spotId } = useParams();
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.session.user)
   const spot = useSelector((state) => state.spots.oneSpot);
+  const reviews = useSelector((state) => state.reviews.reviews);
+  console.log('SPOT', spot.id)
+  console.log('REVIEWS', reviews)
 
   useEffect(() => {
     dispatch(thunkGetSpotDetails(spotId))
   }, [dispatch, spotId]);
+
+  useEffect(() => {
+    dispatch(thunkLoadReviews(spotId))
+  }, [dispatch, spotId])
 
   if(!spot || Object.keys(spot).length === 0) return null
 
@@ -60,7 +69,7 @@ function SpotDetails() {
       </div>
 
       <div>
-        <ReviewComponent spot={spot} />
+        <ReviewComponent spot={spot} user={user} />
       </div>
     </div>
   )
