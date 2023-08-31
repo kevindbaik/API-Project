@@ -196,6 +196,21 @@ const validSpotImages = [
     preview: false
   },
   {
+    spotId: 8,
+    url: "https://a0.muscache.com/im/pictures/miso/Hosting-644487931421139781/original/bcd884bc-8f06-4eea-921f-4ff046f540fa.jpeg",
+    preview: false
+  },
+  {
+    spotId: 8,
+    url: "https://a0.muscache.com/im/pictures/63551843/d4006334_original.jpg",
+    preview: false
+  },
+  {
+    spotId: 8,
+    url: "https://a0.muscache.com/im/pictures/50210487-4db7-4471-a611-51338afa4788.jpg",
+    preview: false
+  },
+  {
     spotId: 9,
     url: "https://a0.muscache.com/im/pictures/f906fe29-49de-4375-a485-a8148c5e0de0.jpg",
     preview: true
@@ -208,6 +223,16 @@ const validSpotImages = [
   {
     spotId: 9,
     url: "https://a0.muscache.com/im/pictures/6c182540-1dfb-41dd-b039-92d184d8e488.jpg",
+    preview: false
+  },
+  {
+    spotId: 9,
+    url: "https://a0.muscache.com/im/pictures/ece29b74-bc5c-4cb3-9a68-f16c0b9405b1.jpg",
+    preview: false
+  },
+  {
+    spotId: 9,
+    url: "https://a0.muscache.com/im/pictures/032f2b84-c28d-4eca-b9ff-77aac7e6f26f.jpg",
     preview: false
   },
   {
