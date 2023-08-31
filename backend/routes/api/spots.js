@@ -305,7 +305,7 @@ async(req, res) => {
     return res.json({"message": "User already has a review for this spot"})
   }
   else {
-      const newReview = await spot.createReview({
+      let newReview = await spot.createReview({
       userId: user.id,
       review,
       stars

@@ -1,0 +1,36 @@
+.rating-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.review-item {
+  display: flex;
+}
+
+.rating-input .filled {
+  color: rgb(43, 160, 43);
+  width: 32px;
+}
+
+.rating-input .empty {
+  color: rgb(43, 160, 43);
+  width: 32px;
+}
+
+.sort {
+  display: flex;
+  list-style: none;
+}
+
+.sort li {
+  cursor: pointer;
+  margin: 0 4px;
+}
+
+.sort li.active {
+  font-weight: bold;
+  text-decoration: underline;
+  pointer-events: none;
+}

@@ -1,6 +1,8 @@
 import React from 'react'
 import './ReviewComponent.css';
 import { useState } from 'react';
+import CreateReviewModal from './CreateReviewModal';
+import OpenModalMenuItem from '../Navigation/OpenModalMenuItem';
 
 function ReviewComponent({spot, reviews, user}) {
   const arrReviews = Object.values(reviews);
@@ -42,7 +44,7 @@ function ReviewComponent({spot, reviews, user}) {
   return (
     <div>
       <div className='reviews-header'>
-        <i className="fa-solid fa-star"></i>
+        <i className="fa-solid fa-star fa-reviewstar"></i>
         {spot.avgStarRating > 0 ? <p className='review-avgstars'>{spot.avgStarRating.toFixed(2)}</p> : null}
         {spot.numReviews > 0 ? <p className='reviews-dot'>·</p> : null}
         <p className={spot.numReviews > 0 ? 'reviews-reviewtext' : 'reviews-newtext'}>{checkReviews(spot.numReviews)}</p>
@@ -50,7 +52,12 @@ function ReviewComponent({spot, reviews, user}) {
 
         {arrReviews.length === 0 && userId !== spot.Owner.id ? <p className='first-reviewer'>Be the first to review!</p> : null}
 
-        {!haveReviewed && !isOwner && user ? <button className='review-submitbutton'>Post Your Review</button> : null}
+        {!haveReviewed && !isOwner && user ?
+          <OpenModalMenuItem
+          itemText='Post Your Review'
+          modalComponent={<CreateReviewModal reviews={reviews} spot={spot} user={user}/>}
+          />
+         : null}
 
       <div className='review-totalcontainer'>
         {mostRecent.map((review) => (

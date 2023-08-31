@@ -41,7 +41,7 @@ module.exports = (sequelize, DataTypes) => {
         min: 1,
         max: 5
       }
-    }
+    },
   }, {
     sequelize,
     modelName: 'Review',

@@ -58,7 +58,7 @@ function SpotDetails() {
           <div className='spotdetails-reservetop'>
             <p className='spotdetails-price'>${spot.price} night</p>
             <div className='starreviews'>
-              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star fa-reviewstar"></i>
               {spot.avgStarRating ? <p className='spotdetails-numstars'>&nbsp;{spot.avgStarRating.toFixed(2)}</p> : null}
               {spot.numReviews > 0 ? <p className='reviews-dot'>·</p> : null}
               <p className={spot.numReviews > 0 ? 'spotdetails-reviewtext' : 'spotdetails-newtext'}>{checkReviews(spot.numReviews)}</p>

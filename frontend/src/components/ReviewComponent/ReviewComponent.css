@@ -73,3 +73,19 @@
   margin-top: 2px;
   color: rgb(74, 74, 74);
 }
+
+.review-createbutton {
+  border: 1px solid rgb(52, 140, 4);
+  background-color: white;
+  color: rgb(52, 140, 4);
+  font-size: 14px;
+  padding: 6px 18px;
+  width: 120px;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 10px;
+};
+
+.review-createbutton:hover {
+  cursor: pointer;
+}

@@ -9,6 +9,11 @@ function OpenModalMenuItem({
 }) {
   const { setModalContent, setOnModalClose } = useModal();
 
+  const checkItemText = (text) => {
+    if(text === 'Delete') return 'manage-deletebutton'
+    else if(text = 'Post Your Review') return 'review-createbutton'
+    else return 'modal-text'
+  }
 
   const onClick = () => {
     if (onModalClose) setOnModalClose(onModalClose);
@@ -17,7 +22,7 @@ function OpenModalMenuItem({
   };
 
   return (
-    <div className={itemText === 'Delete' ? 'manage-deletebutton' : 'modal-text'} onClick={onClick}>{itemText}</div>
+    <div className={checkItemText(itemText)} onClick={onClick}>{itemText}</div>
   );
 }
 
