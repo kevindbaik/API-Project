@@ -13,7 +13,10 @@ function CreateReviewModal({reviews, spot, user}) {
 
   const handleReviewSubmit = async (e) => {
     e.preventDefault();
-    const newReview = await dispatch(thunkCreateReview(spot.id, review, rating, user)).then(dispatch(thunkGetSpotDetails(spot.id)));
+    const newReview = await dispatch(thunkCreateReview(spot.id, review, rating, user))
+    if(newReview) {
+      dispatch(thunkGetSpotDetails(spot.id));
+    }
     closeModal();
   };
 
