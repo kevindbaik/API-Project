@@ -166,19 +166,19 @@ const validReviews = [
     stars: 5
   },
   {
-    spotId: 5,
+    spotId: 6,
     userId: 6,
     review: 'Fun weekend in this cozy little home. Only downside is there isn\'t much to do around the location.',
     stars: 3
   },
   {
-    spotId: 5,
+    spotId: 6,
     userId: 7,
     review: 'One word to describe this home is.... comfy. Had a good time, wish it was a little bit more spacious though.',
     stars: 3
   },
   {
-    spotId: 5,
+    spotId: 6,
     userId: 8,
     review: 'Nice treehome. Nothing too special, and location wasn\'t the best, but it was okay.',
     stars: 3
