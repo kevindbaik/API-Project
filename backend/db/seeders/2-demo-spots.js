@@ -79,7 +79,7 @@ const validSpots = [
     lat: 34.66,
     lng: -112,
     name: 'Cedar Falls Treehouse',
-    description: '150 square foot space with big picture windowws and bright interior. Sleeps two,includes Wi-Fi and 100 inch screen projector for watching movies.',
+    description: '150 square foot space with big picture windows and bright interior. Sleeps two,includes Wi-Fi and 100 inch screen projector for watching movies.',
     price: 270.00
   },
   {

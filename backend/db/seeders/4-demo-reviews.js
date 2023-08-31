@@ -36,7 +36,7 @@ const validReviews = [
   {
     spotId: 6,
     userId: 2,
-    review: 'A nice place with a great view! Jacuzzi was amazing! Thanks for the hospitality.',
+    review: 'A fun stay. Waking up in the middle of the woods and being surrounded by trees everywhere is such an awesome feeling.',
     stars: 4
   },
   {
@@ -142,25 +142,25 @@ const validReviews = [
     stars: 5
   },
   {
-    spotId: 4,
+    spotId: 5,
     userId: 9,
     review: 'Best treehouse I have ever stayed at. Huge amounts of space and connecting bridge makes it easy to get to other location.',
     stars: 5
   },
   {
-    spotId: 4,
+    spotId: 5,
     userId: 6,
     review: 'I brought my kids here to spend the weekend. We had a blast!',
     stars: 4
   },
   {
-    spotId: 4,
+    spotId: 5,
     userId: 10,
     review: 'Thanks Kevin for the great stay. Wonderful place with a second treehouse connected by a bridge. Would recommend if this is your first time doing something like this.',
     stars: 5
   },
   {
-    spotId: 4,
+    spotId: 5,
     userId: 8,
     review: 'As someone who loves trees and studies different wood types, staying at a treehouse made of Douglas Fir is a once in a lifetime opportunity.',
     stars: 5
@@ -217,7 +217,7 @@ const validReviews = [
     spotId: 8,
     userId: 10,
     review: 'Please avoid this location. Despite the cheap price, I can assure you it is not worth it.',
-    stars: 5
+    stars: 1
   },
   {
     spotId: 8,
