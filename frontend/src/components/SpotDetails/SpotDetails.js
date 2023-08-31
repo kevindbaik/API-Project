@@ -12,7 +12,6 @@ function SpotDetails() {
   const user = useSelector((state) => state.session.user)
   const spot = useSelector((state) => state.spots.oneSpot);
   const objReviews = useSelector((state) => state.reviews.reviews);
-  // const arrReviews = Object.values(objReviews);
 
   useEffect(() => {
     dispatch(thunkGetSpotDetails(spotId))
@@ -22,7 +21,9 @@ function SpotDetails() {
     dispatch(thunkLoadReviews(spotId))
   }, [dispatch, spotId])
 
-  if(!spot || Object.keys(spot).length === 0) return null
+
+  if(!spot || Object.keys(spot).length === 0) return null;
+
 
   let previewImage = spot.SpotImages.find(image => image.preview)
   const otherImages = spot.SpotImages.filter(image => !image.preview);

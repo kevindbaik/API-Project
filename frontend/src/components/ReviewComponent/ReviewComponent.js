@@ -1,8 +1,19 @@
 import React from 'react'
-import './ReviewComponent.css'
+import './ReviewComponent.css';
+import { useState } from 'react';
 
 function ReviewComponent({spot, reviews, user}) {
   const arrReviews = Object.values(reviews);
+  let userId;
+  if(user) userId = user.id
+  // check if reviewed
+  let haveReviewed = true;
+  if(!arrReviews.find(review => review.userId === userId)) {
+    haveReviewed = false;
+  }
+  // check if owner
+  let isOwner = true;
+  if(userId !== spot.Owner.id) isOwner = false
 
   const checkReviews = (reviews) => {
     if(reviews === 0) return 'New'
@@ -12,7 +23,6 @@ function ReviewComponent({spot, reviews, user}) {
 
   const getEasierDate = (array) => {
     let mostRecent = [];
-
     for(let i = 0; i < array.length; i++) {
       let review = array[i];
       const date = review.updatedAt;
@@ -22,7 +32,6 @@ function ReviewComponent({spot, reviews, user}) {
       const fullMonth = monthNames[betterDate.getMonth()];
       const fullYear = betterDate.getFullYear();
       review.reviewDate = `${fullMonth} ${fullYear}`;
-
       // for jsx map to get most recent first
       mostRecent.unshift(review)
     }
@@ -38,6 +47,10 @@ function ReviewComponent({spot, reviews, user}) {
         {spot.numReviews > 0 ? <p className='reviews-dot'>·</p> : null}
         <p className={spot.numReviews > 0 ? 'reviews-reviewtext' : 'reviews-newtext'}>{checkReviews(spot.numReviews)}</p>
       </div>
+
+        {arrReviews.length === 0 && userId !== spot.Owner.id ? <p className='first-reviewer'>Be the first to review!</p> : null}
+
+        {!haveReviewed && !isOwner && user ? <button className='review-submitbutton'>Post Your Review</button> : null}
 
       <div className='review-totalcontainer'>
         {mostRecent.map((review) => (

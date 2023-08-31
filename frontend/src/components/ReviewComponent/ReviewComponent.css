@@ -68,3 +68,8 @@
 .review-profilepic {
   width: 34px;
 }
+
+.first-reviewer {
+  margin-top: 2px;
+  color: rgb(74, 74, 74);
+}
