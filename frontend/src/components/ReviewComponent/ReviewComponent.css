@@ -21,3 +21,50 @@
   margin-top: 15px;
   margin-left: 1px;
 }
+
+.review-totalcontainer {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+}
+
+.review-individualcontainer {
+  width: 900px;
+  word-wrap: break-word;
+  margin-bottom: 10px;
+}
+
+.review-picdatename {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.review-namedate {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.review-namedate > h3 {
+  font-size: 17px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.review-namedate > p {
+  color: rgb(128, 128, 128);
+  font-size: 15px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.review-description {
+  font-size: 16px;
+  margin-top: 11px;
+}
+
+.review-profilepic {
+  width: 34px;
+}

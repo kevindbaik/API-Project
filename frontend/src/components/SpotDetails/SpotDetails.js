@@ -11,9 +11,8 @@ function SpotDetails() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user)
   const spot = useSelector((state) => state.spots.oneSpot);
-  const reviews = useSelector((state) => state.reviews.reviews);
-  console.log('SPOT', spot.id)
-  console.log('REVIEWS', reviews)
+  const objReviews = useSelector((state) => state.reviews.reviews);
+  // const arrReviews = Object.values(objReviews);
 
   useEffect(() => {
     dispatch(thunkGetSpotDetails(spotId))
@@ -69,7 +68,7 @@ function SpotDetails() {
       </div>
 
       <div>
-        <ReviewComponent spot={spot} user={user} />
+        <ReviewComponent spot={spot} user={user} reviews={objReviews}/>
       </div>
     </div>
   )
