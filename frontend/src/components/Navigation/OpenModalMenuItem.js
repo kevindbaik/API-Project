@@ -22,7 +22,7 @@ function OpenModalMenuItem({
   };
 
   return (
-    <div className={checkItemText(itemText)} onClick={onClick}>{itemText}</div>
+    <div style={{cursor: 'pointer', fontSize:'13px'}}className={checkItemText(itemText)} onClick={onClick}>{itemText}</div>
   );
 }
 

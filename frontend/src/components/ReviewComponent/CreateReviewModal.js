@@ -4,6 +4,7 @@ import Stars from '../Stars/Stars';
 import { useDispatch } from 'react-redux';
 import { thunkCreateReview } from '../../store/reviews';
 import { thunkGetSpotDetails } from '../../store/spots';
+import './CreateReviewModal.css'
 
 function CreateReviewModal({reviews, spot, user}) {
   const [review, setReview] = useState("");
@@ -25,7 +26,7 @@ function CreateReviewModal({reviews, spot, user}) {
   };
 
   return (
-    <div>
+    <div className='createreview-container'>
       <h2>How was your stay?</h2>
       <form onSubmit={handleReviewSubmit}>
 
@@ -33,12 +34,11 @@ function CreateReviewModal({reviews, spot, user}) {
         onChange={onChange}
         rating={rating} onSubmit={rating}/>
 
-      <textarea className='' value={review}
+      <textarea className='createreview-description' value={review}
         onChange={(e) => setReview(e.target.value)}
         placeholder='Leave your review here...'/>
-      <button type='submit' id='' className='modal-button' disabled={review.length < 10 || rating <= 0}> Submit Your Review </button>
+      <button type='submit' id='createreview-submitbutton' className='modal-button' disabled={review.length < 10 || rating <= 0}> Submit Your Review </button>
       </form>
-
     </div>
   )
 }

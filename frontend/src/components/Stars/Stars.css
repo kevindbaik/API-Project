@@ -14,6 +14,12 @@
   width: 32px;
 }
 
+.rating-input .filled:hover {
+  cursor: pointer;
+  color: rgb(43, 160, 43);
+  width: 32px;
+}
+
 .rating-input .empty {
   color: rgb(43, 160, 43);
   width: 32px;

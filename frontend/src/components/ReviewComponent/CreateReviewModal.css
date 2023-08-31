@@ -1,0 +1,42 @@
+.createreview-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 360px;
+  padding: 16px 18px 18px;
+  border: 3px solid rgb(95, 95, 95);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.createreview-description {
+  margin-bottom: 20px;
+  margin-top: 0px;
+  width: 300px;
+  height: 90px;
+  font-size: 14px;
+}
+
+#createreview-submitbutton:disabled {
+  border: 1px solid rgb(201, 201, 201);
+  background-color: white;
+  color: rgb(216, 216, 216);
+}
+
+#createreview-submitbutton {
+  background-color: rgb(88, 163, 88);
+  height: 45px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+
+#createreview-submitbutton:hover:enabled {
+  cursor: pointer;
+  background-color: rgb(97, 181, 97);
+}
+
+#createreview-submitbutton:active:enabled {
+  box-shadow: 0 2px #8f8f8f;
+  transform: translateY(1px);
+}
