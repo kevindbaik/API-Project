@@ -55,7 +55,7 @@ const validSpots = [
     lat: 33.99,
     lng: 11.22,
     name: 'Sierra Treehouse',
-    description: 'This beautiful and unique treehouse will provide you a great getaway, whether you are visiting friends or family or headed to the National parks.',
+    description: 'This beautiful and unique treehouse will provide you a great getaway. Located in the hills of Sierra La Verne, enjoy a night in this cozy treehome that has a sliding glass door, and inspired by modern maple wood architecture.',
     price: 355.00
   },
   {
@@ -104,7 +104,7 @@ const validSpots = [
     lng: -126.33,
     name: 'Stillaguamish River Treehouse',
     description: 'Treehouse can sleep up to 4 and has a kitchenette and toilet. Located right next to Stillaguamish River and includes free parking and picnic table for dining.',
-    price: 155.00
+    price: 55.00
   },
   {
     ownerId: 5,

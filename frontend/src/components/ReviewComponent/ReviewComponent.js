@@ -12,7 +12,7 @@ function ReviewComponent({spot}, {user}) {
     <div>
       <div className='reviews-header'>
         <i className="fa-solid fa-star"></i>
-        {spot.avgStarRating > 0 ? <p className='review-avgstars'>{spot.avgStarRating}.0</p> : null}
+        {spot.avgStarRating > 0 ? <p className='review-avgstars'>{spot.avgStarRating.toFixed(2)}</p> : null}
         {spot.numReviews > 0 ? <p className='reviews-dot'>·</p> : null}
         <p className={spot.numReviews > 0 ? 'reviews-reviewtext' : 'reviews-newtext'}>{checkReviews(spot.numReviews)}</p>
       </div>
