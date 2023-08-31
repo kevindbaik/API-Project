@@ -39,7 +39,7 @@
 
 #confirm-button {
   color: white;
-  background-color: rgb(227, 67, 67);
+  background-color: rgb(64, 134, 57);
 }
 
 #cancel-button {
@@ -50,7 +50,7 @@
 
 #confirm-button:hover {
   cursor: pointer;
-  background-color: rgb(195, 60, 60);
+  background-color: rgb(57, 154, 48);
   transition-delay: 0s;
 }
 

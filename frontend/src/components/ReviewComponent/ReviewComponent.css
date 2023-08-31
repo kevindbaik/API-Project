@@ -89,3 +89,8 @@
 .review-createbutton:hover {
   cursor: pointer;
 }
+
+.review-deletebutton {
+  margin-top: 10px;
+  width: 80px;
+}

@@ -11,7 +11,7 @@ function OpenModalMenuItem({
 
   const checkItemText = (text) => {
     if(text === 'Delete') return 'manage-deletebutton'
-    else if(text = 'Post Your Review') return 'review-createbutton'
+    else if(text === 'Post Your Review') return 'review-createbutton'
     else return 'modal-text'
   }
 

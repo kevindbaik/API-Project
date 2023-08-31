@@ -3,6 +3,7 @@ import './ReviewComponent.css';
 import { useState } from 'react';
 import CreateReviewModal from './CreateReviewModal';
 import OpenModalMenuItem from '../Navigation/OpenModalMenuItem';
+import DeleteReviewModal from './DeleteReviewModal';
 
 function ReviewComponent({spot, reviews, user}) {
   const arrReviews = Object.values(reviews);
@@ -72,6 +73,11 @@ function ReviewComponent({spot, reviews, user}) {
             <div className='review-description'>
               {review.review}
             </div>
+            <div className='review-deletebutton'>
+            {review.userId === userId &&  <OpenModalMenuItem
+          itemText='Delete'
+          modalComponent={<DeleteReviewModal spot={spot} user={user} review={review}/>}/>}
+            </div>
           </div>
         ))}
       </div>
@@ -79,4 +85,4 @@ function ReviewComponent({spot, reviews, user}) {
   )
 }
 
-export default ReviewComponent
+export default ReviewComponent;
