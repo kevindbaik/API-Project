@@ -2,7 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { thunkGetSpotDetails } from '../../store/spots';
 import { useParams } from 'react-router-dom';
-import './SpotDetails.css'
+import ReviewComponent from '../ReviewComponent/ReviewComponent';
+import './SpotDetails.css';
 
 function SpotDetails() {
   const { spotId } = useParams();
@@ -17,6 +18,12 @@ function SpotDetails() {
 
   let previewImage = spot.SpotImages.find(image => image.preview)
   const otherImages = spot.SpotImages.filter(image => !image.preview);
+
+  const checkReviews = (reviews) => {
+    if(reviews === 0) return 'New'
+    else if (reviews === 1) return `${reviews} Review`
+    else return `${reviews} Reviews`
+  };
 
   return (
     <div className='spotdetails-container'>
@@ -42,14 +49,18 @@ function SpotDetails() {
           <div className='spotdetails-reservetop'>
             <p className='spotdetails-price'>${spot.price} night</p>
             <div className='starreviews'>
-            <i className="fa-solid fa-star"></i>
-            <p className='spotdetails-numstars'>&nbsp; {spot.avgStarRating}.0</p>
-            <p className='dot'>•</p>
-            <p className='spotdetails-numreviews'>{spot.numReviews} reviews</p>
+              <i className="fa-solid fa-star"></i>
+              {spot.avgStarRating ? <p className='spotdetails-numstars'>&nbsp;{spot.avgStarRating}.0</p> : null}
+              {spot.numReviews > 0 ? <p className='reviews-dot'>·</p> : null}
+              <p className={spot.numReviews > 0 ? 'spotdetails-reviewtext' : 'spotdetails-newtext'}>{checkReviews(spot.numReviews)}</p>
             </div>
           </div>
           <button onClick={() => {alert('Feature coming soon!')}} className='reserve-button'>Reserve</button>
         </div>
+      </div>
+
+      <div>
+        <ReviewComponent spot={spot} />
       </div>
     </div>
   )

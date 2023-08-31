@@ -62,7 +62,7 @@
   border-top: 1px solid rgb(215, 215, 215);
   border-bottom: 1px solid rgb(215, 215, 215);
   width: 550px;
-  height: 140px;
+  height: 165px;
 }
 
 .spotdetails-descriptionlink {
@@ -116,7 +116,12 @@
 }
 
 .spotdetails-numstars {
-  font-weight: bold;
+  /* font-weight: bold; */
+  margin-top: 16px;
+}
+
+.spotdetails-reviewtext {
+  margin-bottom: 12px;
 }
 
 .reserve-button {
@@ -140,6 +145,10 @@
   background-color: rgb(96, 165, 96);
   box-shadow: 0 2px #8f8f8f;
   transform: translateY(1px);
+}
+
+.spotdetails-newtext{
+  margin-left: 5px;
 }
 
 #topright {

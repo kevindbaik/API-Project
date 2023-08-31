@@ -1,0 +1,23 @@
+.reviews-header {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.reviews-header > i {
+  margin-right: 5px;
+  font-size: 12px;
+}
+
+.review-avgstars {
+  margin-right: 10px;
+}
+
+.reviews-dot {
+  margin-right: 10px;
+}
+
+.reviews-newtext {
+  margin-top: 15px;
+  margin-left: 1px;
+}
