@@ -54,7 +54,7 @@ form {
 
 .form-textarea {
   height: 100px;
-  margin-bottom: 29px;
+  margin-bottom: 30px;
 }
 
 .form-line {
@@ -71,9 +71,6 @@ form {
   margin-bottom: 23px;
 }
 
-.form-url {
-  margin-bottom: 24px;
-}
 
 .form-submitbutton {
   color: white;
@@ -98,72 +95,49 @@ form {
 .form-errors {
   color: red;
   margin: 0px;
-  font-size: 13px;
+  font-size: 12px;
 }
 
-.country {
-  position: absolute;
-  top: 254px;
-  left: 355px;
+.form-errorcontainer {
+  display: flex;
+  column-gap: 8px;
+  align-items: center;
 }
 
-.address {
-  position: absolute;
-  top: 315px;
-  left: 407px;
+.form-errorcontainer > label {
+  margin-top: 3px;
 }
 
-.city {
-  position: absolute;
-  top: 376px;
-  left: 325px;
+.form-pricecontainer {
+  display: flex;
 }
 
-.state {
-  position: absolute;
-  top: 376px;
-  right: 302px;
+.form-pricecontainer > i {
+  margin-top: 3px;
 }
 
 .description {
-  position: absolute;
-  top: 676px;
+  margin-bottom: 10px;
 }
 
 .name {
-  position: absolute;
-  top: 828px;
+  margin-bottom: 10px;
 }
 
 .price {
-  position: absolute;
-  top: 955px;
-  left: 530px;
+  margin-top: 2px;
+  margin-left: 10px;
 }
 
-.preview {
-  position: absolute;
-  top: 1105px
+.form-header2 > input {
+  margin-bottom: 0px;
 }
 
-.urlOne {
-  position: absolute;
-  top: 1152px
-}
-
-.urlTwo {
-  position: absolute;
-  top: 1199px
-}
-
-.urlThree {
-  position: absolute;
-  top: 1244px
-}
-
-.urlFour {
-  position: absolute;
-  top: 1290px
+.form-urlcontainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  margin-bottom: 20px;
 }
 
 textarea {
