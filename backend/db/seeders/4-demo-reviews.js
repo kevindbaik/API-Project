@@ -11,8 +11,8 @@ if (process.env.NODE_ENV === 'production') {
 const validReviews = [
   {
     spotId: 2,
-    userId: 3,
-    review: 'Perfect. Location could not have been any better. A great time with a great atmosphere.',
+    userId: 2,
+    review: 'Loved the chair swing! Seeing the sunset in this area is such a treat.',
     stars: 5
   },
   {
@@ -90,7 +90,7 @@ const validReviews = [
   {
     spotId: 2,
     userId: 6,
-    review: 'Brought my parents here because they\'ve experienced a night in a treehouse. They loved it!',
+    review: 'Brought my parents here because they\'ve never experienced a night in a treehouse. They loved it! Thank you!',
     stars: 4
   },
   {
