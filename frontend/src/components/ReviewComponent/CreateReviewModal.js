@@ -30,6 +30,10 @@ function CreateReviewModal({reviews, spot, user}) {
       <h2>How was your stay?</h2>
       <form onSubmit={handleReviewSubmit}>
 
+        <textarea className='createreview-description' value={review}
+          onChange={(e) => setReview(e.target.value)}
+          placeholder='Leave your review here...'/>
+
       <div className='createreview-starscontainer'>
       <Stars disabled={false}
         onChange={onChange}
@@ -37,9 +41,6 @@ function CreateReviewModal({reviews, spot, user}) {
         <p>Stars</p>
         </div>
 
-      <textarea className='createreview-description' value={review}
-        onChange={(e) => setReview(e.target.value)}
-        placeholder='Leave your review here...'/>
       <button type='submit' id='createreview-submitbutton' className='modal-button' disabled={review.length < 10 || rating <= 0}> Submit Your Review </button>
       </form>
     </div>
