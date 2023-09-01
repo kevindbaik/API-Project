@@ -57,11 +57,12 @@ function ProfileButton({ user }) {
       <div id={divUser} className={divShow} ref={ulRef}>
         {user ? (
           <div className='logged-in-dropdown'>
-            <p className='loggedin-text'>Hello, {user.firstName}!</p>
-            <div className='loggedin-line'></div>
+            <p className='loggedin-text'>Hello, <strong>{user.firstName}!</strong></p>
             <p className='loggedin-text'>{user.email}</p>
             <div className='loggedin-line'></div>
-            <NavLink className='loggedin-text' onClick={closeMenu} to='/spots/current'>Manage Spots</NavLink>
+            <div className='loggedin-link'>
+            <NavLink style={{ textDecoration: "none", color: 'black' }} onClick={closeMenu} to='/spots/current'>Manage Spots</NavLink>
+            </div>
             <div className='loggedin-line'></div>
             <button className="logout-button" onClick={logout}>Log Out</button>
           </div>

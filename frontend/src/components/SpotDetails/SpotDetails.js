@@ -68,7 +68,7 @@ function SpotDetails() {
         </div>
         <div className="spotdetails-reservebox">
           <div className="spotdetails-reservetop">
-            <p className="spotdetails-price">${spot.price} night</p>
+            <p className="spotdetails-price"><strong>${spot.price}</strong> night</p>
             <div className="starreviews">
               <i className="fa-solid fa-star fa-reviewstar"></i>
               {spot.avgStarRating ? (

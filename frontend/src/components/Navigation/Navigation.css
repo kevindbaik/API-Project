@@ -115,17 +115,33 @@
   margin: 0px;
 }
 
-.loggedin-text:hover {
-  color: rgb(53, 165, 38);
-  transition-delay: 0s;
+.loggedin-link {
+  font-size: 14px;
+}
+
+.loggedin-link:hover {
+  background-color:#e3e3e3;
 }
 
 .logout-button {
   margin-top: 12px;
+  margin-left: 63px;
+  margin-right: auto;
+  font-size: 13px;
+  background-color: rgb(63, 180, 63);
+  color: white;
+  border: white;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+
+.logout-button:hover {
+  cursor: pointer;
+  background-color: rgb(69, 194, 69);
 }
 
 .loggedin-line {
-  border-top: 1px solid rgb(195, 195, 195);
-  margin-top: 4px;
-  margin-bottom: 4px;
+  border-top: 1px solid #d4d4d4;
+  /* margin-top: 4px;
+  margin-bottom: 4px; */
 }

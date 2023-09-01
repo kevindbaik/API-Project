@@ -137,20 +137,20 @@
   height: 70px;
   color: white;
   font-weight: bold;
-  background-color: rgb(88, 163, 88);
+  background-color: rgb(63, 180, 63);
   border: none;
   border-radius: 5px;
 }
 
 .reserve-button:hover {
   cursor: pointer;
-  background-color: rgb(96, 165, 96);
+  background-color: rgb(60, 192, 60);
 }
 
 .reserve-button:active {
-  background-color: rgb(96, 165, 96);
+  background-color: rgb(60, 192, 60);
   box-shadow: 0 2px #8f8f8f;
-  transform: translateY(1px);
+  transform: translateY(2px);
 }
 
 .spotdetails-newtext{

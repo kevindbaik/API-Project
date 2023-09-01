@@ -15,6 +15,7 @@
 
 .reviews-dot {
   margin-right: 10px;
+  font-weight: bold;
 }
 
 .reviews-newtext {
@@ -76,7 +77,7 @@
 
 .review-createbutton {
   border-radius: 5px;
-  background-color: rgb(88, 163, 88);
+  background-color: rgb(63, 180, 63);
   color: white;
   font-size: 14px;
   padding: 6px 18px;

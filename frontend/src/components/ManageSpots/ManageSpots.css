@@ -15,7 +15,7 @@
 
 .manage-createbutton {
   color: white;
-  background-color:rgb(88, 163, 88);
+  background-color:rgb(63, 180, 63);
   border: none;
   width: 140px;
   height: 30px;
@@ -33,10 +33,10 @@
 }
 
 .manage-updatebutton {
-  color: rgb(44, 158, 44);
+  color: rgb(63, 180, 63);
   background-color:white;
   border-radius: 18px;
-  border: 1px solid rgb(44, 158, 44);
+  border: 1px solid rgb(63, 180, 63);
   width: 80px;
   height: 30px;
 }
@@ -48,5 +48,5 @@
 
 .manage-updatebutton:active {
   box-shadow: 0 1px #8f8f8f;
-  transform: translateY(1px);
+  transform: translateY(2px);
 }
