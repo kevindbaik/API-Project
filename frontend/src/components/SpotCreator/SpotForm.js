@@ -63,7 +63,16 @@ function SpotForm() {
     if (description.length < 30)
       errorsObj["description"] = "Description must be at least 30 characters.";
     if (price <= 0) errorsObj["price"] = "Price is required.";
-    if (preview.length < 1) errorsObj["preview"] = "Preview image is required.";
+    if (preview.length < 1) errorsObj["previewLength"] = "Preview image is required.";
+    if(
+      preview.toLowerCase().endsWith(".png") ||
+      preview.toLowerCase().endsWith(".jpeg") ||
+      preview.toLowerCase().endsWith(".jpg")
+    ) {
+
+    } else {
+      errorsObj["previewEnd"] = 'Preview Image URL must end in .png, .jpg, or .jpeg'
+    }
     if (urlOne) {
       if (
         urlOne.toLowerCase().endsWith(".png") ||
@@ -285,8 +294,11 @@ function SpotForm() {
           Submit a link to at least one photo to publish your spot.
         </p>
         <div className="form-urlcontainer">
-          {errors.preview && (
-            <p className="form-errors preview">{errors.preview}</p>
+          {errors.previewLength && (
+            <p className="form-errors preview">{errors.previewLength}</p>
+          )}
+          {errors.previewEnd && (
+            <p className="form-errors preview">{errors.previewEnd}</p>
           )}
           <input
             className="form-previewurl"

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { thunkGetSpotDetails } from "../../store/spots";
+import { thunkGetSpotDetails, clearSpot } from "../../store/spots";
 import { useParams } from "react-router-dom";
 import ReviewComponent from "../ReviewComponent/ReviewComponent";
 import "./SpotDetails.css";
@@ -13,12 +13,14 @@ function SpotDetails() {
   const spot = useSelector((state) => state.spots.oneSpot);
   const objReviews = useSelector((state) => state.reviews.reviews);
 
-  useEffect(() => {
-    dispatch(thunkGetSpotDetails(spotId));
-  }, [dispatch, spotId]);
+
 
   useEffect(() => {
+    dispatch(thunkGetSpotDetails(spotId));
     dispatch(thunkLoadReviews(spotId));
+    return () => {
+      dispatch(clearSpot())
+    }
   }, [dispatch, spotId]);
 
   if (!spot || Object.keys(spot).length === 0) return null;
