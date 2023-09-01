@@ -8,3 +8,30 @@
   margin-top: 33px;
   margin-left: 25px;;
 }
+
+@media (min-width: 1200px) {
+  .allspots-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-left: 36px;
+  }
+
+  .onespot-image {
+    max-width: 400px;
+    max-height: 400px;
+    height: 300px;
+  }
+
+  .onespot-container {
+    max-width: 400px;
+  }
+
+  .onespot-info {
+    width: 100%;
+  }
+
+  .spotdetails-container {
+    width: 1000px;
+    margin: 0 auto;
+  }
+}

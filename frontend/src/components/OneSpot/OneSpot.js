@@ -37,12 +37,11 @@ function OneSpot({ spot }) {
             </h4>
             <p className="onespot-price">${spot.price} night</p>
           </div>
-          <div>
+          <div className="starrating-media">
             {spot.avgRating >= 1 ? (
               <div className="star-rating-container">
-                {" "}
-                <i className="fa-solid fa-star fa-reviewstar"></i>{" "}
-                <p>{spot.avgRating.toFixed(2)}</p>{" "}
+                <i className="fa-solid fa-star fa-reviewstar"></i>
+                <p>{spot.avgRating.toFixed(2)}</p>
               </div>
             ) : (
               <p className="onespot-new">New</p>
