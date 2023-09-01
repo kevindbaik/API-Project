@@ -1,15 +1,14 @@
 import React from "react";
-import spotsReducer from "../../store/spots";
 import { useParams, useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { thunkGetSpotDetails, thunkUpdateSpot } from "../../store/spots";
 
 function SpotEditForm() {
   const history = useHistory();
   const dispatch = useDispatch();
   const { spotId } = useParams();
-  const spot = useSelector((state) => state.spots.oneSpot);
+  // const spot = useSelector((state) => state.spots.oneSpot);
 
   useEffect(() => {
     dispatch(thunkGetSpotDetails(spotId)).then((res) => {

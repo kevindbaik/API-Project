@@ -71,7 +71,7 @@ function SpotForm() {
     ) {
 
     } else {
-      errorsObj["previewEnd"] = 'Preview Image URL must end in .png, .jpg, or .jpeg'
+      errorsObj["previewEnd"] = 'Preview image URL must end in .png, .jpg, or .jpeg'
     }
     if (urlOne) {
       if (

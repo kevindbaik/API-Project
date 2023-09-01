@@ -13,14 +13,12 @@ function SpotDetails() {
   const spot = useSelector((state) => state.spots.oneSpot);
   const objReviews = useSelector((state) => state.reviews.reviews);
 
-
-
   useEffect(() => {
     dispatch(thunkGetSpotDetails(spotId));
     dispatch(thunkLoadReviews(spotId));
     return () => {
-      dispatch(clearSpot())
-    }
+      dispatch(clearSpot());
+    };
   }, [dispatch, spotId]);
 
   if (!spot || Object.keys(spot).length === 0) return null;
@@ -70,7 +68,9 @@ function SpotDetails() {
         </div>
         <div className="spotdetails-reservebox">
           <div className="spotdetails-reservetop">
-            <p className="spotdetails-price"><strong>${spot.price}</strong> night</p>
+            <p className="spotdetails-price">
+              <strong>${spot.price}</strong> night
+            </p>
             <div className="starreviews">
               <i className="fa-solid fa-star fa-reviewstar"></i>
               {spot.avgStarRating ? (
