@@ -40,18 +40,18 @@
 
 #confirm-button {
   color: white;
-  background-color: rgb(64, 134, 57);
+  background-color: rgb(211, 0, 0);
 }
 
 #cancel-button {
   color: white;
-  background-color: rgb(158, 158, 158);
+  background-color: rgb(73, 73, 73);
 }
 
 
 #confirm-button:hover {
   cursor: pointer;
-  background-color: rgb(57, 154, 48);
+  background-color: rgb(239, 62, 62);
   transition-delay: 0s;
 }
 

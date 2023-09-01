@@ -21,6 +21,7 @@ function OneSpot({spot}) {
         </NavLink>
         </Tooltip>
       </div>
+      <NavLink style={{textDecoration: 'none', color:'black'}} to={`/spots/${spot.id}`}>
       <div className='onespot-info'>
         <div>
         <h4 className='onespot-location'>{spot.city}, {spot.state}</h4>
@@ -30,6 +31,7 @@ function OneSpot({spot}) {
           {spot.avgRating >=1 ? <div className='star-rating-container'> <i className="fa-solid fa-star fa-reviewstar"></i> <p>{spot.avgRating.toFixed(2)}</p> </div> : <p className='onespot-new'>New</p>}
         </div>
       </div>
+      </NavLink>
         {manage &&
         <div className='update-delete-container'>
           <NavLink to={`/spots/${spot.id}/edit`}>

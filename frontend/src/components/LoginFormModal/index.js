@@ -26,40 +26,42 @@ function LoginFormModal() {
 
   const logInDemoUser = () => {
     setCredential("demouser");
-    setPassword("demouser")
+    setPassword("demouser");
   };
 
   return (
-    <div className='login-container'>
-      <h1>Log In:</h1>
+    <div className="login-container">
+      <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
-        <div className="label-input-container">
-          <label>Username or Email:</label>
-          <input
-            type="text"
-            value={credential}
-            onChange={(e) => setCredential(e.target.value)}
-            required
-          />
-        </div>
-        <div className="label-input-container">
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
         {errors.credential && (
-          <div className="login-error">
-          <p>{errors.credential}</p>
-          </div>
+          <p className="login-error">{errors.credential}</p>
         )}
-        <div className="button-container">
-        <button disabled={credential.length < 4 || password.length < 6} type="submit">Log In</button>
-        <button onClick={logInDemoUser}> Log In as Demo User</button>
-        </div>
+        <label className="login-label">Username or Email:</label>
+        <input
+          type="text"
+          value={credential}
+          onChange={(e) => setCredential(e.target.value)}
+          required
+        />
+
+        <label className="login-label">Password:</label>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+
+        <button
+          className="login-button"
+          disabled={credential.length < 4 || password.length < 6}
+          type="submit"
+        >
+          Log In
+        </button>
+        <button className="demo-button" onClick={logInDemoUser}>
+          Demo User
+        </button>
       </form>
     </div>
   );

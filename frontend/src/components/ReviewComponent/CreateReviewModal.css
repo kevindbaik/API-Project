@@ -16,6 +16,20 @@
   font-size: 14px;
 }
 
+.createreview-starscontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  margin-top: 4px;
+  margin-bottom: 5px;
+}
+
+.createreview-starscontainer > p {
+  color: green;
+  margin-bottom: 41px;
+}
+
 #createreview-submitbutton:disabled {
   border: 1px solid rgb(201, 201, 201);
   background-color: white;

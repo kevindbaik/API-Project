@@ -166,8 +166,8 @@ function SpotEditForm() {
 
   return (
     <div className="form-container">
-      <h1 className="form-header">Edit Your Spot</h1>
-      <h2 className="form-header2">Where's your treehouse located?</h2>
+      <h1 className="form-header">Update Your Spot</h1>
+      <h2 className="form-header2">Where's your place located?</h2>
       <p className="form-header3">
         Guests will only get your exact address once they booked a reservation.
       </p>
@@ -239,7 +239,7 @@ function SpotEditForm() {
         <h2 className="form-header2">Describe your place to guests</h2>
         <p className="form-header3">
           Mention the best features of your space, any special amentities like
-          fast wifi or parking, and tree shape or wood type.
+          fast wifi or parking, and what you love about the neighborhood.
         </p>
         {errors.description && (
           <p className="form-errors description">{errors.description}</p>
@@ -253,10 +253,10 @@ function SpotEditForm() {
 
         <div className="form-line"></div>
 
-        <label className="form-header2">Create a title for your treehome</label>
+        <label className="form-header2">Create a title for your spot</label>
         <p className="form-header3">
           Catch guests attention with a title that highlights what makes your
-          tree special.
+          place special.
         </p>
         {errors.name && <p className="form-errors name">{errors.name}</p>}
         <input
@@ -270,7 +270,7 @@ function SpotEditForm() {
 
         <div className="form-line"></div>
 
-        <label className="form-header2">Set a base price for your tree</label>
+        <label className="form-header2">Set a base price for your spot</label>
         <p className="form-header3">
           Competitive pricing can help your listing stand out and rank higher in
           search results.
@@ -290,9 +290,9 @@ function SpotEditForm() {
 
         <div className="form-line"></div>
 
-        <label className="form-header2">Liven up your tree with photos</label>
+        <label className="form-header2">Liven up your spot with photos</label>
         <p className="form-header3">
-          Submit a link to at least one photo to publish your treehouse.
+          Submit a link to at least one photo to publish your spot.
         </p>
         <div className="form-urlcontainer">
           {errors.preview && (

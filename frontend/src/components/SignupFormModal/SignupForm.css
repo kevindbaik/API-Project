@@ -6,11 +6,12 @@
   height: 550px;
 }
 
-.label-input-container {
+/* .label-input-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+  width: ;
+} */
 
 .signup-errors {
   color: red;
