@@ -32,10 +32,6 @@ function SpotEditForm() {
   const [name, setName] = useState("spot.name");
   const [price, setPrice] = useState("spot.price");
   const [preview, setPreview] = useState("");
-  const [urlOne, setUrlOne] = useState("");
-  const [urlTwo, setUrlTwo] = useState("");
-  const [urlThree, setUrlThree] = useState("");
-  const [urlFour, setUrlFour] = useState("");
   const [errors, setErrors] = useState({});
 
   const updateCountry = (e) => setCountry(e.target.value);
@@ -46,10 +42,6 @@ function SpotEditForm() {
   const updateName = (e) => setName(e.target.value);
   const updatePrice = (e) => setPrice(e.target.value);
   const updatePreview = (e) => setPreview(e.target.value);
-  const updateUrlOne = (e) => setUrlOne(e.target.value);
-  const updateUrlTwo = (e) => setUrlTwo(e.target.value);
-  const updateUrlThree = (e) => setUrlThree(e.target.value);
-  const updateUrlFour = (e) => setUrlFour(e.target.value);
 
   function checkErrors(
     address,
@@ -60,10 +52,6 @@ function SpotEditForm() {
     description,
     price,
     preview,
-    urlOne,
-    urlTwo,
-    urlThree,
-    urlFour
   ) {
     const errorsObj = {};
     if (address.length < 4) errorsObj["address"] = "Address is required.";
@@ -74,48 +62,16 @@ function SpotEditForm() {
     if (description.length < 30)
       errorsObj["description"] = "Description must be at least 30 characters.";
     if (price <= 0) errorsObj["price"] = "Price is required.";
-    if (preview.length < 1) errorsObj["preview"] = "Preview image is required.";
-    if (urlOne) {
-      if (
-        urlOne.toLowerCase().endsWith(".png") ||
-        urlOne.toLowerCase().endsWith(".jpeg") ||
-        urlOne.toLowerCase().endsWith(".jpg")
-      ) {
-      } else {
-        errorsObj["urlOne"] = "Image URL must end in .png, .jpg, or .jpeg";
-      }
-    }
-    if (urlTwo) {
-      if (
-        urlTwo.toLowerCase().endsWith(".png") ||
-        urlTwo.toLowerCase().endsWith(".jpeg") ||
-        urlTwo.toLowerCase().endsWith(".jpg")
-      ) {
-      } else {
-        errorsObj["urlTwo"] = "Image URL must end in .png, .jpg, or .jpeg";
-      }
-    }
-    if (urlThree) {
-      if (
-        urlThree.toLowerCase().endsWith(".png") ||
-        urlThree.toLowerCase().endsWith(".jpeg") ||
-        urlThree.toLowerCase().endsWith(".jpg")
-      ) {
-      } else {
-        errorsObj["urlThree"] = "Image URL must end in .png, .jpg, or .jpeg";
-      }
-    }
-    if (urlFour) {
-      if (
-        urlFour.toLowerCase().endsWith(".png") ||
-        urlFour.toLowerCase().endsWith(".jpeg") ||
-        urlFour.toLowerCase().endsWith(".jpg")
-      ) {
-      } else {
-        errorsObj["urlFour"] = "Image URL must end in .png, .jpg, or .jpeg";
-      }
-    }
+    if (preview.length < 1) errorsObj["previewLength"] = "Preview image is required.";
+    if(
+      preview.toLowerCase().endsWith(".png") ||
+      preview.toLowerCase().endsWith(".jpeg") ||
+      preview.toLowerCase().endsWith(".jpg")
+    ) {
 
+    } else {
+      errorsObj["previewEnd"] = 'Preview Image URL must end in .png, .jpg, or .jpeg'
+    }
     return errorsObj;
   }
   // hard code lat/long values because its optional
@@ -133,10 +89,6 @@ function SpotEditForm() {
       description,
       price,
       preview,
-      urlOne,
-      urlTwo,
-      urlThree,
-      urlFour
     );
 
     setErrors(foundErrors);
@@ -156,7 +108,6 @@ function SpotEditForm() {
       price,
     };
 
-    console.log(spotId);
     let newSpot = await dispatch(thunkUpdateSpot(spotId, payload));
     if (newSpot) {
       dispatch(thunkGetSpotDetails(newSpot.id));
@@ -295,8 +246,11 @@ function SpotEditForm() {
           Submit a link to at least one photo to publish your spot.
         </p>
         <div className="form-urlcontainer">
-          {errors.preview && (
-            <p className="form-errors preview">{errors.preview}</p>
+          {errors.previewLength && (
+            <p className="form-errors preview">{errors.previewLength}</p>
+          )}
+          {errors.previewEnd && (
+            <p className="form-errors preview">{errors.previewEnd}</p>
           )}
           <input
             className="form-url"
@@ -305,55 +259,6 @@ function SpotEditForm() {
             value={preview}
             onChange={updatePreview}
             placeholder="Preview Image URL"
-          />
-
-          {errors.urlOne && (
-            <p className="form-errors urlOne">{errors.urlOne}</p>
-          )}
-          <input
-            className="form-url"
-            type="url"
-            name="additionalURL"
-            value={urlOne}
-            onChange={updateUrlOne}
-            placeholder="Image URL"
-          />
-
-          {errors.urlTwo && (
-            <p className="form-errors urlTwo">{errors.urlTwo}</p>
-          )}
-
-          <input
-            className="form-url"
-            type="url"
-            name="additionalURL"
-            value={urlTwo}
-            onChange={updateUrlTwo}
-            placeholder="Image URL"
-          />
-
-          {errors.urlThree && (
-            <p className="form-errors urlThree">{errors.urlThree}</p>
-          )}
-          <input
-            className="form-url"
-            type="url"
-            name="additionalURL"
-            value={urlThree}
-            onChange={updateUrlThree}
-            placeholder="Image URL"
-          />
-
-          {errors.urlFour && (
-            <p className="form-errors urlFour">{errors.urlFour}</p>
-          )}
-          <input
-            className="form-url"
-            type="url"
-            name="additionalURL"
-            value={urlFour}
-            onChange={updateUrlFour}
-            placeholder="Image URL"
           />
         </div>
         <div className="form-line"></div>
