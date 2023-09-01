@@ -13,7 +13,10 @@ function DeleteReviewModal({ user, review, spot }) {
 
   const handleDelete = async (e) => {
     e.preventDefault();
-    const deleted = await dispatch(thunkDeleteReview(review.id)).then(dispatch(thunkGetSpotDetails(spot.id)))
+    const deleted = await dispatch(thunkDeleteReview(review.id))
+    if(deleted) {
+      dispatch(thunkGetSpotDetails(spot.id))
+    }
     closeModal();
   };
 
