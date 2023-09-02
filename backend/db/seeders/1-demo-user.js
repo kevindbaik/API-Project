@@ -80,6 +80,13 @@ module.exports = {
         hashedPassword: bcrypt.hashSync('hello1'),
         firstName: 'Teddy',
         lastName: 'Baik'
+      },
+      {
+        email: 'BestTA@gmail.com',
+        username: 'IloveCSS',
+        hashedPassword: bcrypt.hashSync('appac1'),
+        firstName: 'Jefferson',
+        lastName: 'Appacademy'
       }
     ], { validate: true });
   },

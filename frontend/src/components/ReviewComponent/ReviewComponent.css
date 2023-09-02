@@ -68,6 +68,8 @@
 
 .review-profilepic {
   width: 34px;
+  height: 31px;
+  border-radius: 50%;
 }
 
 .first-reviewer {

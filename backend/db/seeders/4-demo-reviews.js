@@ -77,6 +77,12 @@ const validReviews = [
   },
   {
     spotId: 1,
+    userId: 11,
+    review: 'This home was not impressive. What is impressive, however is this amazing, fully functioning website that (hopefully) never crashes. Wow!',
+    stars: 4
+  },
+  {
+    spotId: 1,
     userId: 8,
     review: 'Too small. Not much to do on site and we had to drive 30 mins to find fun something to do. Look elsewhere if you plan on renting a treehome.',
     stars: 2
@@ -84,8 +90,8 @@ const validReviews = [
   {
     spotId: 2,
     userId: 10,
-    review: 'Gorgeous treehome! Absolutely would recommend coming here with friends or family because it is an experience of a lifetime.',
-    stars: 5
+    review: 'Woof! Woof! Woof! Woof!',
+    stars: 4
   },
   {
     spotId: 2,
@@ -114,8 +120,8 @@ const validReviews = [
   {
     spotId: 3,
     userId: 10,
-    review: 'It was a good time. We really enjoyed the hot tub and firepit at night. Only negative was the place is kinda dirty.',
-    stars: 4
+    review: 'Woof! Woof!',
+    stars: 2
   },
   {
     spotId: 3,
@@ -155,12 +161,6 @@ const validReviews = [
   },
   {
     spotId: 5,
-    userId: 10,
-    review: 'Thanks Kevin for the great stay. Wonderful place with a second treehouse connected by a bridge. Would recommend if this is your first time doing something like this.',
-    stars: 5
-  },
-  {
-    spotId: 5,
     userId: 8,
     review: 'As someone who loves trees and studies different wood types, staying at a treehouse made of Douglas Fir is a once in a lifetime opportunity.',
     stars: 5
@@ -192,7 +192,7 @@ const validReviews = [
   {
     spotId: 7,
     userId: 10,
-    review: 'Insane treehouse bro. Speechless.',
+    review: 'Woof! Woof! Woof! Woof! Woof!',
     stars: 5
   },
   {
@@ -216,7 +216,7 @@ const validReviews = [
   {
     spotId: 8,
     userId: 10,
-    review: 'Please avoid this location. Despite the cheap price, I can assure you it is not worth it.',
+    review: 'Grrrr....',
     stars: 1
   },
   {
@@ -230,8 +230,8 @@ const validReviews = [
     userId: 9,
     review: 'I have contacted support and will be requesting a refund shortly. This should be illegal.',
     stars: 1
-  },
-];
+  }
+]
 
 module.exports = {
   async up (queryInterface, Sequelize) {

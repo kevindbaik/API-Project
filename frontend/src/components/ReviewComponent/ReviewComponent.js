@@ -90,7 +90,7 @@ function ReviewComponent({ spot, reviews, user }) {
             <div className="review-picdatename">
               <img
                 className="review-profilepic"
-                src="https://www.svgrepo.com/show/335455/profile-default.svg"
+                src={review.userId === 10 ? "https://i.ibb.co/phtSP4T/tedddd.jpg" : "https://www.svgrepo.com/show/335455/profile-default.svg"}
               />
               <div className="review-namedate">
                 <h3>{review.User.firstName}</h3>
