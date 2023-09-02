@@ -16,9 +16,6 @@ function SpotDetails() {
   useEffect(() => {
     dispatch(thunkGetSpotDetails(spotId));
     dispatch(thunkLoadReviews(spotId));
-    return () => {
-      dispatch(clearSpot());
-    };
   }, [dispatch, spotId]);
 
   if (!spot || Object.keys(spot).length === 0) return null;
