@@ -14,10 +14,9 @@
 }
 
 .onespot-info {
-  width: 288px;
+  width: 294px;
   display: flex;
   justify-content: space-between;
-  /* border: 1px solid red; */
 }
 
 .onespot-location {
@@ -29,9 +28,9 @@
 
 .onespot-price {
   font-size: 13px;
-  margin-top: 7px;
+  margin-top: 4px;
 
-  color: rgb(108, 108, 108);
+  color: rgb(114, 114, 114);
 }
 
 .onespot-new {
