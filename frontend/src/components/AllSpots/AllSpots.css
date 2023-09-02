@@ -9,7 +9,7 @@
   place-items: center;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1150px) {
   .allspots-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -20,22 +20,19 @@
     max-width: 400px;
     max-height: 420px;
     height: 360px;
+    flex-shrink: 0;
   }
 
   .onespot-container {
     max-width: 400px;
   }
 
-  .onespot-image-container {
-    width: 400px;
-  }
-
   .onespot-info {
     width: 100%;
   }
 
-  .spotdetails-container {
-    width: 1000px;
-    margin: 0 auto;
-  }
+#spotdetails-wrapper {
+  display: flex;
+  justify-content: center;
+}
 }

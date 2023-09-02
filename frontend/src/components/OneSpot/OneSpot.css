@@ -1,7 +1,7 @@
 .onespot-container {
   display: flex;
   flex-direction: column;
-  /* border: 1px solid blue; */
+  width: 100%;
 }
 
 .onespot-image {
@@ -9,7 +9,6 @@
   width: 100%;
   max-width: 299px;
   height: 283px;
-
   border-radius: 10px;
 }
 

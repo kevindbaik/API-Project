@@ -30,6 +30,7 @@ function SpotDetails() {
   };
 
   return (
+    <div id='spotdetails-wrapper'>
     <div className="spotdetails-container">
       <h1 className="spotdetails-h1">{spot.name}</h1>
       <h2 className="spotdetails-h2">
@@ -101,6 +102,7 @@ function SpotDetails() {
       <div>
         <ReviewComponent spot={spot} user={user} reviews={objReviews} />
       </div>
+    </div>
     </div>
   );
 }
