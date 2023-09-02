@@ -9,6 +9,12 @@
   place-items: center;
 }
 
+@media (max-width: 1149px) {
+  .allspots-container {
+    margin-left: 23px;
+  }
+}
+
 @media (min-width: 1150px) {
   .allspots-container {
     display: grid;
