@@ -3,7 +3,7 @@ import OneSpot from "../OneSpot/OneSpot";
 import "./AllSpots.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { thunkLoadSpots } from "../../store/spots";
+import { thunkLoadSpots, clearSpot } from "../../store/spots";
 
 function AllSpots() {
   const dispatch = useDispatch();
@@ -12,6 +12,7 @@ function AllSpots() {
 
   useEffect(() => {
     dispatch(thunkLoadSpots());
+    dispatch(clearSpot())
   }, [dispatch]);
 
   return (
