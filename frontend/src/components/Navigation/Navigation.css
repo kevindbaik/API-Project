@@ -82,6 +82,11 @@
   transition-delay: 0ms;
 }
 
+.nav-newspotlink:active {
+  box-shadow: 0 2px #8f8f8f;
+  transform: translateY(2px);
+}
+
 .user-profile-button-container:hover {
   cursor: pointer;
 }
@@ -90,6 +95,10 @@
   cursor: pointer;
   box-shadow: 2px 2px #d6d6d6;
   transition-delay: 4ms;
+}
+
+.user-profile-button:active {
+  transform: translateY(2px);
 }
 
 .user-profile-button:focus {
@@ -113,14 +122,26 @@
   color: rgb(0, 0, 0);
   transition-delay: 0s;
   margin: 0px;
+  line-height: 23px;
+  padding-bottom: 8px;
 }
 
 .loggedin-link {
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .loggedin-link:hover {
-  background-color:#e3e3e3;
+  background-color:#f8f8f8;
+  transition-delay: 2ms;
+}
+
+.houselogo {
+  display: inline-block;
+  text-align: center;
+  font-size: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 2px;
 }
 
 .logout-button {
@@ -142,6 +163,4 @@
 
 .loggedin-line {
   border-top: 1px solid #d4d4d4;
-  /* margin-top: 4px;
-  margin-bottom: 4px; */
 }

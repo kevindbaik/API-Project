@@ -63,10 +63,10 @@
 
 #confirm-button:active {
   box-shadow: 0 1px #8f8f8f;
-  transform: translateY(1px);
+  transform: translateY(2px);
 }
 
 #cancel-button:active {
   box-shadow: 0 1px #8f8f8f;
-  transform: translateY(1px);
+  transform: translateY(2px);
 }

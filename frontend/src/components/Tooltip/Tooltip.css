@@ -36,11 +36,10 @@
   margin-left: calc(var(--tooltip-arrow-size) * -1);
 }
 
-/* Absolute positioning */
 .Tooltip-Tip.top {
   top: calc(var(--tooltip-margin) * -1);
 }
-/* CSS border triangles */
+
 .Tooltip-Tip.top::before {
   top: 100%;
   border-top-color: var(--tooltip-background-color);
