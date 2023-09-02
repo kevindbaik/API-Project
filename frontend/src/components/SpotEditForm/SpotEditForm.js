@@ -108,10 +108,8 @@ function SpotEditForm() {
     };
 
     let newSpot = await dispatch(thunkUpdateSpot(spotId, payload));
-    if (newSpot) {
-      dispatch(thunkGetSpotDetails(newSpot.id));
-      history.push(`/spots/${newSpot.id}`);
-    }
+    dispatch(thunkGetSpotDetails(newSpot.id));
+    history.push(`/spots/${newSpot.id}`);
   };
 
   return (
