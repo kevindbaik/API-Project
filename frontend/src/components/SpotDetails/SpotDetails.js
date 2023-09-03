@@ -20,9 +20,8 @@ function SpotDetails() {
 
   if (!spot || Object.keys(spot).length === 0) return null;
 
-  let previewImage = spot.SpotImages.find((image) => image.preview);
-  const otherImages = spot.SpotImages.filter((image) => !image.preview);
-
+  const previewImage = spot.SpotImages.find((image) => image.preview);
+  let otherImages = spot.SpotImages.filter((image) => !image.preview);
   if(otherImages.length < 4) {
     let index = otherImages.length;
     const noImage = { url: 'https://cdn11.bigcommerce.com/s-m1jiibmpmc/stencil/080443d0-e8e7-0139-b5bb-5eca3f67671f/e/f51774b0-60cc-0138-751f-0242ac11000b/icons/icon-no-image.svg'}
@@ -50,7 +49,7 @@ function SpotDetails() {
       <div className="spotdetails-imagesplitter">
         <img
           className="spotdetails-previewImage"
-          src={previewImage.url}
+          src={Object.keys(previewImage).length > 0 && previewImage.url}
           alt=""
         ></img>
         <div className="spotdetails-sideImages-container">
