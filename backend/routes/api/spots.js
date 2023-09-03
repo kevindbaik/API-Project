@@ -493,7 +493,7 @@ async(req, res) => {
     response.url = image.url;
     response.preview = image.preview;
 
-    res.json(response)
+    return res.json(response);
   }
 });
 
