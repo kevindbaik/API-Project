@@ -31,7 +31,7 @@ function ManageSpots() {
   };
 
   return (
-    <div>
+    <div className='managespotspage-container'>
       <div className='manage-header'>
       <h1>Manage Your Spots</h1>
       {noSpots && <button className='manage-createbutton' onClick={handleCreate}>Create a New Spot</button>}
