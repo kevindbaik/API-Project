@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Children, useEffect } from "react";
-import { thunkGetSpotDetails, clearSpot } from "../../store/spots";
+import { useEffect } from "react";
+import { thunkGetSpotDetails } from "../../store/spots";
 import { useParams } from "react-router-dom";
 import ReviewComponent from "../ReviewComponent/ReviewComponent";
 import "./SpotDetails.css";
@@ -22,7 +22,7 @@ function SpotDetails() {
 
   let previewImage = spot.SpotImages.find((image) => image.preview);
   const otherImages = spot.SpotImages.filter((image) => !image.preview);
-  console.log(otherImages)
+
   if(otherImages.length < 4) {
     let index = otherImages.length;
     const noImage = { url: 'https://cdn11.bigcommerce.com/s-m1jiibmpmc/stencil/080443d0-e8e7-0139-b5bb-5eca3f67671f/e/f51774b0-60cc-0138-751f-0242ac11000b/icons/icon-no-image.svg'}
@@ -31,7 +31,7 @@ function SpotDetails() {
       index++
     }
   }
-  console.log(otherImages)
+
 
 
   const checkReviews = (reviews) => {

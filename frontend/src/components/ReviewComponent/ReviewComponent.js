@@ -1,6 +1,5 @@
 import React from "react";
 import "./ReviewComponent.css";
-import { useState } from "react";
 import CreateReviewModal from "./CreateReviewModal";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import DeleteReviewModal from "./DeleteReviewModal";
@@ -91,6 +90,7 @@ function ReviewComponent({ spot, reviews, user }) {
               <img
                 className="review-profilepic"
                 src={review.userId === 10 ? "https://i.ibb.co/phtSP4T/tedddd.jpg" : "https://www.svgrepo.com/show/335455/profile-default.svg"}
+                alt=''
               />
               <div className="review-namedate">
                 <h3>{review.User.firstName}</h3>
