@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useModal } from '../../context/Modal';
 import Stars from '../Stars/Stars';
 import { useDispatch } from 'react-redux';

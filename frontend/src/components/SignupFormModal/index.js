@@ -118,6 +118,7 @@ function SignupFormModal() {
             password.length < 6 ||
             firstName.length < 1 ||
             lastName.length < 1 ||
+            confirmPassword.length < password.length ||
             email.length < 1
           }
           type="submit"

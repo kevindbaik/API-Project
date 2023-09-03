@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { thunkDeleteSpot } from "../../store/spots";
 import { useModal } from "../../context/Modal";
@@ -28,14 +28,14 @@ function DeleteModal({ spot }) {
         className="modal-button"
         onClick={handleDelete}
       >
-        Confirm (Delete Spot)
+        Yes (Delete Spot)
       </button>
       <button
         id="cancel-button"
         className="modal-button"
         onClick={handleCancel}
       >
-        Cancel (Keep Spot)
+        No (Keep Spot)
       </button>
     </div>
   );

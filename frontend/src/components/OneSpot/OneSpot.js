@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import "./OneSpot.css";
 import "react-tooltip/dist/react-tooltip.css";
@@ -44,7 +44,9 @@ function OneSpot({ spot }) {
                 <p>{spot.avgRating.toFixed(2)}</p>
               </div>
             ) : (
-              <p className="onespot-new">New</p>
+              <div className="star-rating-container">
+                <i className="fa-solid fa-star fa-reviewstar"></i> <p className="onespot-new">New</p>
+              </div>
             )}
           </div>
         </div>

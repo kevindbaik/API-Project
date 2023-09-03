@@ -1,6 +1,6 @@
 import React from "react";
 import "./SpotForm.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import {
@@ -61,8 +61,8 @@ function SpotForm() {
     if (country.length < 2) errorsObj["country"] = "Country is required.";
     if (name.length < 1) errorsObj["name"] = "Name is required.";
     if (description.length < 30)
-      errorsObj["description"] = "Description must be at least 30 characters.";
-    if (price <= 0) errorsObj["price"] = "Price is required.";
+      errorsObj["description"] = "Description needs 30 or more characters.";
+    if (price <= 0) errorsObj["price"] = "Price per night is required.";
     if (preview.length < 1) errorsObj["previewLength"] = "Preview image is required.";
     if(
       preview.toLowerCase().endsWith(".png") ||
