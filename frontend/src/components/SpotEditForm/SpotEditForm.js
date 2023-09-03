@@ -58,10 +58,8 @@ function SpotEditForm() {
     if (state.length < 1) errorsObj["state"] = "State is required.";
     if (country.length < 2) errorsObj["country"] = "Country is required.";
     if (name.length < 1) errorsObj["name"] = "Name is required.";
-    if (description.length < 30)
-    if(description.length > 250)
-    errorsObj['description'] = 'Description cannot exceed 250 characters.'
-      errorsObj["description"] = "Description needs 30 or more characters.";
+    if (description.length < 30) errorsObj["description"] = "Description needs 30 or more characters.";
+    if(description.length > 250) errorsObj['description'] = 'Description cannot exceed 250 characters.'
     if (price <= 0) errorsObj["price"] = "Price per night is required.";
     if (preview.length < 1) errorsObj["previewLength"] = "Preview image is required.";
     if(

@@ -23,10 +23,10 @@
     max-width: 1500px;
     margin-left: auto;
     margin-right: auto;
-    /* place-items: center; */
   }
 
   .nav-container {
+    width: auto;
     max-width: 1500px;
     margin-left: auto;
     margin-right: auto;
@@ -47,8 +47,20 @@
     width: 100%;
   }
 
+.user-profile-button-container {
+  position: relative;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 40px;
+  right: 5px
+}
+
+
 #spotdetails-wrapper {
   display: flex;
   justify-content: center;
 }
+
 }
