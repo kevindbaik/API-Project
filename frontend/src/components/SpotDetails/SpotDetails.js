@@ -20,7 +20,9 @@ function SpotDetails() {
 
   if (!spot || Object.keys(spot).length === 0) return null;
 
+  console.log(spot)
   const previewImage = spot.SpotImages.find((image) => image.preview);
+  console.log(previewImage)
   let otherImages = spot.SpotImages.filter((image) => !image.preview);
   if(otherImages.length < 4) {
     let index = otherImages.length;

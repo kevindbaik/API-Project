@@ -153,14 +153,14 @@ function SpotForm() {
       description,
       price,
     };
-    let newSpot = await dispatch(thunkCreateSpot(payload));
+    const newSpot = await dispatch(thunkCreateSpot(payload));
     if (newSpot) {
-      dispatch(thunkCreateImageForSpot(newSpot.id, preview, true));
-      dispatch(thunkCreateImageForSpot(newSpot.id, urlOne, false));
-      dispatch(thunkCreateImageForSpot(newSpot.id, urlTwo, false));
-      dispatch(thunkCreateImageForSpot(newSpot.id, urlThree, false));
-      dispatch(thunkCreateImageForSpot(newSpot.id, urlFour, false));
-      dispatch(thunkGetSpotDetails(newSpot.id));
+      await dispatch(thunkCreateImageForSpot(newSpot.id, preview, true));
+      await dispatch(thunkCreateImageForSpot(newSpot.id, urlOne, false));
+      await dispatch(thunkCreateImageForSpot(newSpot.id,  urlTwo, false));
+      await dispatch(thunkCreateImageForSpot(newSpot.id, urlThree, false));
+      await dispatch(thunkCreateImageForSpot(newSpot.id, urlFour, false));
+      await dispatch(thunkGetSpotDetails(newSpot.id));
       history.push(`/spots/${newSpot.id}`);
     }
   };
