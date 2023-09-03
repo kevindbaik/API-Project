@@ -19,6 +19,7 @@ function App() {
   return (
     <>
       <Navigation isLoaded={isLoaded} />
+      <div id="gray-bar"></div>
       {isLoaded && (
         <Switch>
           <Route exact path="/">

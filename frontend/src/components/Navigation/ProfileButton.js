@@ -47,12 +47,6 @@ function ProfileButton({ user }) {
 
   return (
     <div className="user-profile-button-container">
-      {user ? (
-        <NavLink className="nav-newspotlink" to="/spots/new">
-          {" "}
-          Create a New Spot +
-        </NavLink>
-      ) : null}
       <button className="user-profile-button" onClick={openMenu}>
         <i className="fa-solid fa-bars" />
         <i className="fas fa-user-circle" />
