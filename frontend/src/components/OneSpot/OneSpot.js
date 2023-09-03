@@ -45,7 +45,8 @@ function OneSpot({ spot }) {
               </div>
             ) : (
               <div className="star-rating-container">
-                <i className="fa-solid fa-star fa-reviewstar"></i> <p className="onespot-new">New</p>
+                <i className="fa-regular fa-star fa-reviewstar"></i>
+                <p className="onespot-new">New</p>
               </div>
             )}
           </div>

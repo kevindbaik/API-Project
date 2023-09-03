@@ -57,7 +57,7 @@ function ReviewComponent({ spot, reviews, user }) {
   return (
     <div>
       <div className="reviews-header">
-        <i className="fa-solid fa-star fa-reviewstar"></i>
+        <i className={spot.numReviews > 0 ? "fa-solid fa-star fa-reviewstar" : "fa-regular fa-star fa-reviewstar"}></i>
         {spot.avgStarRating > 0 ? (
           <p className="review-avgstars">{spot.avgStarRating.toFixed(2)}</p>
         ) : null}

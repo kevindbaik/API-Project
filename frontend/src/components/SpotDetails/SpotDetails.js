@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { Children, useEffect } from "react";
 import { thunkGetSpotDetails, clearSpot } from "../../store/spots";
 import { useParams } from "react-router-dom";
 import ReviewComponent from "../ReviewComponent/ReviewComponent";
@@ -22,6 +22,17 @@ function SpotDetails() {
 
   let previewImage = spot.SpotImages.find((image) => image.preview);
   const otherImages = spot.SpotImages.filter((image) => !image.preview);
+  console.log(otherImages)
+  if(otherImages.length < 4) {
+    let index = otherImages.length;
+    const noImage = { url: 'https://cdn11.bigcommerce.com/s-m1jiibmpmc/stencil/080443d0-e8e7-0139-b5bb-5eca3f67671f/e/f51774b0-60cc-0138-751f-0242ac11000b/icons/icon-no-image.svg'}
+    while(index < 4) {
+      otherImages[index] = noImage
+      index++
+    }
+  }
+  console.log(otherImages)
+
 
   const checkReviews = (reviews) => {
     if (reviews === 0) return "New";
@@ -70,7 +81,7 @@ function SpotDetails() {
               <strong>${spot.price}</strong> night
             </p>
             <div className="starreviews">
-              <i className="fa-solid fa-star fa-reviewstar"></i>
+              <i className={spot.numReviews > 0 ? "fa-solid fa-star fa-reviewstar" : "fa-regular fa-star fa-reviewstar"}></i>
               {spot.avgStarRating ? (
                 <p className="spotdetails-numstars">
                   &nbsp;{spot.avgStarRating.toFixed(2)}
