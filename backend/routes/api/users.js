@@ -27,12 +27,12 @@ const validateSignup = [
   check('firstName')
     .exists({ checkFalsy: true })
     .isLength({ min: 2 })
-    .isAlpha()
+    .isAlpha('en-US', {ignore: ' _-'})
     .withMessage('First name can only contain letters.'),
   check('lastName')
     .exists({ checkFalsy: true})
     .isLength({ min: 2 })
-    .isAlpha()
+    .isAlpha('en-US', {ignore: ' _-'})
     .withMessage('Last name can only contain letters.'),
   handleValidationErrors
 ];
