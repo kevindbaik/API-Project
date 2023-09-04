@@ -56,8 +56,9 @@ function ProfileButton({ user }) {
           <div className="logged-in-dropdown">
             <p className="loggedin-text">
               Hello, <strong>{user.firstName}!
-              </strong> {user.email}
+              </strong>
             </p>
+            <p className="loggedin-text emailtext"> {user.email}</p>
             <div className="loggedin-line"></div>
               <NavLink
                 style={{ textDecoration: "none", color: "black" }}
