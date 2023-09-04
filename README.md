@@ -1,10 +1,8 @@
 <!--!!START SILENT -->
-# AirBnB Clone
+# Seedbnb
 <!--!!END -->
 <!--!!ADD -->
 <!-- # `<name of application here>` -->
-Seedbnb
-
 ## Intro
 Seedbnb is a light clone of Airbnb, with a focus on being able to rent and create listings for treehouses.
 Users can create, update, and delete listings for their own spots, as well as post reviews for spots they've stayed at.
@@ -14,8 +12,11 @@ https://api-project-rxoj.onrender.com/
 
 ## Technologies Used
 Backend: Express, Sequelize
+
 Frontend: React, Redux
+
 Database: Postgres
+
 Deployment: Render
 
 ## Landing Page
