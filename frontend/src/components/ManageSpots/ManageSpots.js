@@ -39,13 +39,12 @@ function ManageSpots() {
             Create a New Spot
           </button>
         )}
-      <div className="allspots-container managespots-container">
-        {arrUserSpots.map((spot) => (
-          <OneSpot spot={spot} />
-        ))}
       </div>
-      </div>
-
+        <div className="allspots-container managespots-container">
+          {arrUserSpots.map((spot) => (
+            <OneSpot spot={spot} />
+          ))}
+        </div>
     </div>
   );
 }
