@@ -19,7 +19,7 @@ Database: Postgres
 Deployment: Render
 
 ## Landing Page
-![Screenshot 1](./images/landingpage.png)
+![alt text](./images/landingpage.png)
 
 ## Details Page
 ![alt text](./images/spotdetails.png)
