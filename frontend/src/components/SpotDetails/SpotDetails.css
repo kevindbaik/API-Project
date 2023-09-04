@@ -20,6 +20,10 @@
   margin-top: 2px;
 }
 
+.spotdetails-imagesplitter {
+  display: flex;
+}
+
 .spotdetails-previewImage {
   width: 456px;
   height: 424px;
@@ -37,13 +41,10 @@
 
 .spotdetails-sideImages {
   width: 237px;
-  height: 210px;
+  height: 209.62px;
   object-fit: cover;
 }
 
-.spotdetails-imagesplitter {
-  display: flex;
-}
 
 .spotdetails-host {
   color: rgb(84, 84, 84);
