@@ -3,7 +3,39 @@
 <!--!!END -->
 <!--!!ADD -->
 <!-- # `<name of application here>` -->
-Kevin Baik M4 Project
+Seedbnb
+
+## Intro
+Seedbnb is a light clone of Airbnb, with a focus on being able to rent and create listings for treehouses.
+Users can create, update, and delete listings for their own spots, as well as post reviews for spots they've stayed at.
+This project was built in a little under two weeks and is the first project I've ever worked on.
+
+https://api-project-rxoj.onrender.com/
+
+## Technologies Used
+Backend: Express, Sequelize
+Frontend: React, Redux
+Database: Postgres
+Deployment: Render
+
+## Landing Page
+![Screenshot 1](./images/landingpage.png)
+
+## Details Page
+![alt text](./images/spotdetails.png)
+
+## Launch Instructions
+- Clone this repo, and in the root directory, run `npm i -D`.
+
+- In the backend directory, run `npm i -D` and create a __.env__ file modeled after __.env.example__, editing any details as desired, and adding your own JWT_SECRET.
+
+- Undo migrations and seeders with: `npx dotenv sequelize db:seed:undo:all && npx dotenv sequelize db:migrate:undo:all`.
+
+- Run migrations and seeders with: `npx dotenv sequelize db:migrate && npx dotenv sequelize db:seed:all`.
+
+- Finally, run `npm start`.
+
+- In the frontend directory, run `npm i -D`, and run `npm start`.
 <!--!!END_ADD -->
 
 ## Database Schema Design
