@@ -4,9 +4,8 @@
 <!--!!ADD -->
 <!-- # `<name of application here>` -->
 ## Intro
-Seedbnb is a light clone of Airbnb, with a focus on being able to rent and create listings for treehouses.
-Users can create, update, and delete listings for their own spots, as well as post reviews for spots they've stayed at.
-This project was built in a little under two weeks and is the first project I've ever worked on.
+Seedbnb is a clone of Airbnb, with a focus on being able to rent and create listings for treehouses.
+Currently, users can create, update, and delete listings for their own spots, as well as post reviews for spots they've stayed at.
 
 https://api-project-rxoj.onrender.com/
 
@@ -15,7 +14,7 @@ Backend: Express, Sequelize
 
 Frontend: React, Redux
 
-Database: Postgres
+Database: PostgreSQL
 
 Deployment: Render
 
@@ -25,18 +24,21 @@ Deployment: Render
 ## Details Page
 ![alt text](./images/spotdetails.png)
 
+## Next Features (In Progress)
+- Users will be able to see and manage all of their reviews.
+- Users will be able to book a spot, based on a calender date.
+
 ## Launch Instructions
 - Clone this repo, and in the root directory, run `npm i -D`.
 
-- In the backend directory, run `npm i -D` and create a __.env__ file modeled after __.env.example__, editing any details as desired, and adding your own JWT_SECRET.
+- In the backend directory, run `npm i -D` and create a __.env__ file modeled after __.env.example__, and add your own JWT_SECRET.
 
 - Undo migrations and seeders with: `npx dotenv sequelize db:seed:undo:all && npx dotenv sequelize db:migrate:undo:all`.
 
-- Run migrations and seeders with: `npx dotenv sequelize db:migrate && npx dotenv sequelize db:seed:all`.
+- Run migrations and seeders with: `npx dotenv sequelize db:migrate && npx dotenv sequelize db:seed:all`, and then run `npm start`.
 
-- Finally, run `npm start`.
+- Finally, in the frontend directory, run `npm i -D`, and run `npm start`.
 
-- In the frontend directory, run `npm i -D`, and run `npm start`.
 <!--!!END_ADD -->
 
 ## Database Schema Design
