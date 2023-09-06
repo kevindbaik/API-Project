@@ -43,6 +43,10 @@ export const thunkGetSpotDetails = (spotId) => async(dispatch) => {
     const data = await response.json();
     dispatch(getSpotDetails(data));
     return data;
+  } else {
+    const errors = await response.json();
+    console.log(errors)
+    return errors
   }
 };
 

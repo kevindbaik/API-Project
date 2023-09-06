@@ -321,7 +321,7 @@ router.get('/:spotId', async(req, res) => {
   let spot = await Spot.findByPk(req.params.spotId)
   if(!spot) {
     res.status(404);
-    res.json({message: 'Spot couldn\'t be found.'})
+    return res.json({message: 'Spot couldn\'t be found.'})
   }
   spot = spot.toJSON();
 
@@ -350,7 +350,7 @@ router.get('/:spotId', async(req, res) => {
   });
   spot.Owner = owner;
 
-  res.json(spot)
+  return res.json(spot)
 });
 
 // create a spot
