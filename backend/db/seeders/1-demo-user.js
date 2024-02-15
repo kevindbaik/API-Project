@@ -13,24 +13,24 @@ module.exports = {
     await User.bulkCreate([
       {
         email: 'jsacramento@gmail.com',
-        username: 'juuussstin',
+        username: 'HelterSkelter',
         hashedPassword: bcrypt.hashSync('cook'),
-        firstName: 'Justin',
-        lastName: "Sacramento"
+        firstName: 'George',
+        lastName: "Herman"
       },
       {
         email: 'kassidyrespicio@gmail.com',
-        username: 'kassrespicio',
+        username: 'Humbug',
         hashedPassword: bcrypt.hashSync('nick'),
-        firstName: 'Kassidy',
-        lastName: 'Respicio'
+        firstName: 'Nora',
+        lastName: 'Smith'
       },
       {
         email: 'iansanluis@hotmail.com',
-        username: 'iansanluis',
+        username: 'helloworld',
         hashedPassword: bcrypt.hashSync('guitar'),
-        firstName: 'Ian',
-        lastName: 'SanLuis'
+        firstName: 'Jonathan',
+        lastName: 'Lewis'
       },
       {
         email: 'iowneverything@airbnb.com',
@@ -48,31 +48,31 @@ module.exports = {
       },
       {
         email: 'arogan@gmail.com',
-        username: 'AlyssaRogan',
+        username: 'DemolitionDona',
         hashedPassword: bcrypt.hashSync('hello1'),
-        firstName: 'Alyssa',
-        lastName: 'Rogan'
+        firstName: 'Katie',
+        lastName: 'King'
       },
       {
         email: 'kmendoza@yahoo.com',
         username: 'beefwellington',
         hashedPassword: bcrypt.hashSync('skate1'),
-        firstName: 'Kyle',
-        lastName: 'Mendoza'
+        firstName: 'Chris',
+        lastName: 'Pesto'
       },
       {
         email: 'rimperio@gmail.com',
-        username: 'reginaimperio',
+        username: 'lovinglover',
         hashedPassword: bcrypt.hashSync('hello1'),
-        firstName: 'Regina',
-        lastName: 'Imperio'
+        firstName: 'Kira',
+        lastName: 'Lopez'
       },
       {
         email: 'nickyp@gmail.com',
-        username: 'NickyP',
+        username: 'JinJun',
         hashedPassword: bcrypt.hashSync('hello1'),
-        firstName: 'Nicholas',
-        lastName: 'Pascual'
+        firstName: 'Jun',
+        lastName: 'Lee'
       },
       {
         email: 'teddydog@gmail.com',
